@@ -1,0 +1,8 @@
+@import "../../assets/mixins";
+
+.mainPageWrapper {
+  width: 100%;
+  height: 90%;
+  @include flexCenter(column);
+  background-color: yellow;
+}
