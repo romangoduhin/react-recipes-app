@@ -7,7 +7,8 @@
 span,
 p,
 b,
-a {
+a,
+button {
     color: #3a474e;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.03em;
