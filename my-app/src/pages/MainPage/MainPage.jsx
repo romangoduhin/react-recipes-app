@@ -1,15 +1,19 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styles from './MainPage.module.scss';
 import spoonacularAPI from "../../services/spoonacularApi/api"
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import {useDispatch, useSelector} from "react-redux";
+import {setRandomRecipesAction} from "../../redux/actions/recipesActions";
 
 function MainPage() {
-    const [recipes, setRecipes] = useState([]);
+    const {randomRecipes} = useSelector((state) => state.recipes);
+
+    const dispatch = useDispatch();
 
     async function setRandomRecipes() {
-        const count = 2;
+        const count = 5;
         const recipes = await spoonacularAPI.getRandomRecipes(count);
-        setRecipes(recipes);
+        dispatch(setRandomRecipesAction(recipes))
     }
 
     useEffect(() => {
@@ -19,7 +23,7 @@ function MainPage() {
     return (
         <div className={styles.mainPage}>
             <div className={styles.recipesList}>
-                {recipes && recipes.map(el => <RecipeCard key={el.id} data={el}/>)}
+                {randomRecipes && randomRecipes.map(el => <RecipeCard key={el.id} data={el}/>)}
             </div>
         </div>
     );
