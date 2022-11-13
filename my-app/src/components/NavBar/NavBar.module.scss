@@ -1,0 +1,114 @@
+@import "../../assets/mixins";
+@import "../../assets/variables";
+
+.navBar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  @include flexCenter(row);
+  justify-content: flex-start;
+  border-bottom: $gray solid 2px;
+  box-shadow: 0 0 4px 0 $green;
+  background-color: $white;
+  z-index: 2;
+
+  .logoBlock {
+    width: 20%;
+    height: 100%;
+    @include flexCenter(column);
+
+    img {
+      width: 220px;
+      height: 110px;
+      cursor: pointer;
+      transition: 1s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .stick {
+    height: 70%;
+    width: 2px;
+    background-color: $gray;
+  }
+
+  .searchBlock {
+    margin-right: 200px;
+    margin-left: 200px;
+    width: 40%;
+    height: 100%;
+    @include flexCenter(column);
+
+    input {
+      padding-left: 20px;
+      width: 100%;
+      height: 60%;
+      font-size: 16px;
+      color: $white;
+      background-color: $gray;
+      border: 1px solid $darkGray;
+      border-radius: 8px;
+      cursor: pointer;
+
+      &:hover {
+        outline: 1px solid $darkGray;
+      }
+
+      &:focus {
+        outline: 1px solid $green;
+        background-color: $white;
+      }
+    }
+  }
+
+  .profileBlock {
+    width: 10%;
+    height: 100%;
+    @include flexCenter(row);
+    justify-content: space-between;
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      @include flexCenter(column);
+      border-radius: 50%;
+      background-color: $gray;
+      outline: 1px solid $darkGray;
+      cursor: pointer;
+
+      img {
+        transition: 0.5s;
+        width: 20px;
+        height: 20px;
+      }
+
+      &:hover {
+        outline: 2px solid $darkGray;
+
+        img {
+          transform: scale(1.15);
+        }
+      }
+    }
+
+    .auth {
+      button, span {
+        font-size: 14px;
+      }
+
+      button {
+        border: none;
+        background-color: $white;
+        cursor: pointer;
+
+        &:hover {
+          color: $green;
+        }
+      }
+    }
+  }
+}
