@@ -1,3 +1,5 @@
+@import "./assets/variables";
+
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +11,7 @@ p,
 b,
 a,
 button {
-    color: #3a474e;
+    color: $textColor;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.03em;
 }
