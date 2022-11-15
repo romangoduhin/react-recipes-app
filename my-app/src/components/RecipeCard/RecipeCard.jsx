@@ -2,39 +2,48 @@ import React from 'react';
 import styles from "./RecipeCard.module.scss";
 import PropTypes from 'prop-types';
 
-function RecipeCard({data}) {
-    return data && <div className={styles.recipeCard} key={data.id}>
-        <img className={styles.image} src={data.image} alt="recipe image"/>
+function RecipeCard({size, recipe}) {
+    return recipe && <div className={`${styles.recipeCard} ${styles[size]}`}
+                          key={recipe.id}>
+        <img className={`${styles.image} ${styles[size]}`}
+             src={recipe.image ? recipe.image : "./logoSmall.png"}
+             alt="recipe image"
+        />
 
-        <div className={styles.title}>
-            <b>{data.title}</b>
+        <div className={size === "medium" ? `${styles.title} ${styles.medium}` : styles.title}>
+            <b>{recipe.title}</b>
+            {size === "medium" && <span>Likes &nbsp;<b>{recipe.aggregateLikes}</b></span>}
         </div>
 
         <div className={styles.info}>
-            <div>
-                <span>Vegan</span>
-                <b>{data.vegan ? "Yes" : "No"}</b>
-            </div>
+            {size === "small" && <>
+                <div>
+                    <span>Vegan</span>
+                    <b>{recipe.vegan ? "Yes" : "No"}</b>
+                </div>
 
-            <div>
-                <span>Health score</span>
-                <b>{data.healthScore}</b>
-            </div>
+                <div>
+                    <span>Health score</span>
+                    <b>{recipe.healthScore}</b>
+                </div>
 
-            <div>
-                <span>Cooking time</span>
-                <b>{data.readyInMinutes}m</b>
-            </div>
+                <div>
+                    <span>Cooking time</span>
+                    <b>{recipe.readyInMinutes}m</b>
+                </div>
+            </>}
         </div>
     </div>
 }
 
 RecipeCard.defaultProps = {
-    data: {},
+    size: 'small',
+    recipe: {},
 }
 
 RecipeCard.propTypes = {
-    data: PropTypes.object,
+    size: PropTypes.string,
+    recipe: PropTypes.object,
 }
 
 export default RecipeCard;
