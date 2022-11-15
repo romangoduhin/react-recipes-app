@@ -8,8 +8,13 @@ const recipesInstance = axios.create({
 
 const spoonacularAPI = {
     getRandomRecipes: async (count) => {
-        const response = await recipesInstance.get(`random?number=${count}&apiKey=${apiKey}`)
-        return response.data.recipes
+        try {
+            const response = await recipesInstance.get(`random?number=${count}&apiKey=${apiKey}`)
+            return response.data.recipes
+        } catch (err) {
+            console.log(err);
+            return;
+        }
     }
 }
 
