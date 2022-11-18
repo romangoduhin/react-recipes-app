@@ -15,6 +15,15 @@ const spoonacularAPI = {
             console.log(err);
             return;
         }
+    },
+    getRecipeById: async (id) => {
+        try {
+            const response = await recipesInstance.get(`${id}/information?apiKey=${apiKey}`)
+            return response.data
+        } catch (err) {
+            console.log(err);
+            return;
+        }
     }
 }
 

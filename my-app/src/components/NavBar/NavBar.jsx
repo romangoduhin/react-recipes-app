@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './NavBar.module.scss';
+import {NavLink} from "react-router-dom";
 
 function NavBar() {
     return (
         <div className={styles.navBar}>
             <div className={styles.logoBlock}>
-                <img src="/logoBig.png" alt="logoImage"/>
+                <NavLink to='/'>
+                    <img src="/logoBig.png" alt="logoImage"/>
+                </NavLink>
             </div>
 
             <div className={styles.stick}/>

@@ -5,14 +5,19 @@ import {setPopularRecipesAction} from "../actions/recipesActions";
 export const setRandomRecipesThunk = (count = 10) => {
     return async function (dispatch) {
         const recipes = await spoonacularAPI.getRandomRecipes(count);
-        dispatch(setRandomRecipesAction(recipes))
+        if (recipes) {
+            dispatch(setRandomRecipesAction(recipes))
+        } else return;
     }
 }
 
 export const setPopularRecipesThunk = (count = 10) => {
     return async function (dispatch) {
         const recipes = await spoonacularAPI.getRandomRecipes(count); //imitate popular recipes request
-        let sortedByLikesRecipes = recipes.sort((a, b) => b.aggregateLikes - a.aggregateLikes)
-        dispatch(setPopularRecipesAction(sortedByLikesRecipes))
+
+        if (recipes) {
+            let sortedByLikesRecipes = recipes.sort((a, b) => b.aggregateLikes - a.aggregateLikes)
+            dispatch(setPopularRecipesAction(sortedByLikesRecipes))
+        } else return;
     }
 }
