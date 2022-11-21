@@ -1,0 +1,26 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+.button {
+  min-width: 40px;
+  height: 40px;
+  @include flexCenter(column);
+  border-radius: 50%;
+  background-color: $gray;
+  outline: 1px solid $darkGray;
+  cursor: pointer;
+
+  img {
+    width: 20px;
+    height: 20px;
+    transition: 0.5s;
+  }
+
+  &:hover {
+    outline: 2px solid $darkGray;
+
+    img {
+      transform: scale(1.15);
+    }
+  }
+}

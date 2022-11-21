@@ -14,7 +14,10 @@ function RecipeCard({size, recipe}) {
 
             <div className={size === "medium" ? `${styles.title} ${styles.medium}` : styles.title}>
                 <b>{recipe.title}</b>
-                {size === "medium" && <span>Likes &nbsp;<b>{recipe.aggregateLikes}</b></span>}
+                {size === "medium" && <div className={styles.likesWrapper} >
+                        <img src="/favouriteIcon.png" alt="icon"/>
+                        <b>{recipe.aggregateLikes}</b>
+                </div>}
             </div>
 
             <div className={styles.info}>

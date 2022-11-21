@@ -1,0 +1,20 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+.indicator {
+  @include flexCenter(row);
+  column-gap: 5px;
+
+  div {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: $gray;
+    border: 1px solid $darkGray;
+
+    &.active {
+      background-color: $green;
+      border: 1px solid $green;
+    }
+  }
+}

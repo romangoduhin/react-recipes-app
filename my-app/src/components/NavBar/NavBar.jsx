@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './NavBar.module.scss';
 import {NavLink} from "react-router-dom";
+import ButtonWithIcon from "../ButtonWithIcon/ButtonWithIcon";
 
 function NavBar() {
     return (
@@ -21,9 +22,7 @@ function NavBar() {
             </div>
 
             <div className={styles.profileBlock}>
-                <div className={styles.logo}>
-                    <img src="/userLogo.png" alt="user logo"/>
-                </div>
+                <ButtonWithIcon src={"/userLogo.png"}/>
 
                 <div className={styles.auth}>
                     <button>Login</button>
