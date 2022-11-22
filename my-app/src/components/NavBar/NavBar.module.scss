@@ -71,30 +71,6 @@
     @include flexCenter(row);
     justify-content: space-between;
 
-    .logo {
-      width: 40px;
-      height: 40px;
-      @include flexCenter(column);
-      border-radius: 50%;
-      background-color: $gray;
-      outline: 1px solid $darkGray;
-      cursor: pointer;
-
-      img {
-        transition: 0.5s;
-        width: 20px;
-        height: 20px;
-      }
-
-      &:hover {
-        outline: 2px solid $darkGray;
-
-        img {
-          transform: scale(1.15);
-        }
-      }
-    }
-
     .auth {
       button, span {
         font-size: 14px;

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiKey = "90e4bb97a1c848e685926a30c584ad82";
+const apiKey = "22defad3dc6646869ea114e244a87882";
 
 const recipesInstance = axios.create({
     baseURL: 'https://api.spoonacular.com/recipes/',
@@ -11,6 +11,15 @@ const spoonacularAPI = {
         try {
             const response = await recipesInstance.get(`random?number=${count}&apiKey=${apiKey}`)
             return response.data.recipes
+        } catch (err) {
+            console.log(err);
+            return;
+        }
+    },
+    getRecipeById: async (id) => {
+        try {
+            const response = await recipesInstance.get(`${id}/information?apiKey=${apiKey}`)
+            return response.data
         } catch (err) {
             console.log(err);
             return;

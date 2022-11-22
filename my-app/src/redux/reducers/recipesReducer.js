@@ -2,8 +2,8 @@ import {SET_RANDOM_RECIPES} from "../actions/recipesActions";
 import {SET_POPULAR_RECIPES} from "../actions/recipesActions";
 
 const initialState = {
-    randomRecipes: [],
-    popularRecipes: [],
+    randomRecipes: null,
+    popularRecipes: null,
 }
 
 const recipesReducer = (state = initialState, action) => {

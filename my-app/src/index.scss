@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 span,
@@ -16,7 +17,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+li {
   color: $textColor;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 0.03em;
@@ -32,6 +34,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
 }
 
 code {

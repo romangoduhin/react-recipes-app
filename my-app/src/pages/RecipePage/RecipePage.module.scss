@@ -1,0 +1,197 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.wrapper {
+  padding-top: 20px;
+  width: 100%;
+  height: 100%;
+  @include flexCenter(column);
+  background-color: $white;
+
+  .title {
+    margin-bottom: 20px;
+    width: 90%;
+    @include flexCenter(row);
+  }
+
+  .preInfo {
+    width: 60%;
+    height: 50px;
+    @include flexCenter(row);
+    column-gap: 20px;
+
+    .likes {
+      width: 10%;
+      height: 100%;
+      @include flexCenter(row);
+      column-gap: 10px;
+
+      & > img {
+        height: 24px;
+      }
+
+      & > b {
+        font-size: 22px;
+      }
+    }
+
+    .difficulty {
+      @include flexCenter(row);
+      column-gap: 10px;
+
+      & > b {
+        font-size: 22px;
+      }
+    }
+  }
+
+  .imageWrapper {
+    width: 100%;
+    height: 500px;
+    @include flexCenter(row);
+
+    .image {
+      width: 60%;
+      height: 500px;
+      border-radius: 20px 20px 0 0;
+      box-shadow: 2px 2px 2px $darkGray,
+      -2px 2px 2px $darkGray, 0 -2px 2px $darkGray;
+    }
+  }
+
+  .infoWrapper {
+    width: 100%;
+    min-height: 1000px;
+    height: auto;
+    @include flexCenter(column);
+    justify-content: flex-start;
+    row-gap: 50px;
+    background-color: $gray;
+
+    .imageInfo {
+      width: 60%;
+      height: 100px;
+      @include flexCenter(row);
+      background-color: $white;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 2px 2px $darkGray,
+      -2px 2px 2px $darkGray, 2px 2px 2px $darkGray;
+
+      & > div {
+        width: calc(100% / 5);
+        @include flexCenter(column);
+      }
+    }
+
+    .content {
+      width: 60%;
+      min-height: 500px;
+      height: auto;
+      @include flexCenter(row);
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .ingrAndCateg {
+        width: 45%;
+        height: 100%;
+
+        .ingredients {
+          padding: 20px 20px;
+          width: 100%;
+          height: 100%;
+          background-color: $white;
+          border-radius: 20px;
+          @include shadowAround($darkGray);
+
+          .header {
+            width: 100%;
+            height: 20%;
+          }
+
+          .list {
+            width: 100%;
+            height: 80%;
+            @include flexCenter(column);
+            justify-content: space-between;
+            align-items: flex-start;
+
+            li {
+              width: 100%;
+              height: 40px;
+              @include flexCenter(row);
+              justify-content: flex-start;
+              border-bottom: 1px solid $darkGray;
+
+              & > span {
+                color: $green;
+              }
+            }
+          }
+        }
+
+        .categories {
+          width: 100%;
+
+          .list {
+            @include flexCenter(row);
+            justify-content: flex-start;
+            column-gap: 10px;
+            row-gap: 10px;
+            flex-wrap: wrap;
+
+            .category {
+              padding: 5px;
+              width: auto;
+              font-size: 15px;
+              text-transform: capitalize;
+              background-color: $white;
+              border: 1px solid $darkGray;
+              border-radius: 5px;
+            }
+          }
+
+          .extraInfo {
+            font-size: 11px;
+          }
+        }
+      }
+
+      .description {
+        margin-bottom: 20px;
+        width: 45%;
+        height: 100%;
+        @include flexCenter(column);
+
+        .summary {
+          width: 100%;
+
+          a {
+            color: $green;
+          }
+        }
+
+        .method {
+          width: 100%;
+          @include flexCenter(column);
+          align-items: flex-start;
+
+          .steps {
+            width: 100%;
+            @include flexCenter(column);
+            row-gap: 10px;
+
+            .step {
+              padding: 20px 10px;
+              width: 100%;
+              min-height: 100px;
+              background-color: $white;
+              border-radius: 20px;
+              @include shadowAround($darkGray);
+            }
+          }
+        }
+      }
+    }
+  }
+}
