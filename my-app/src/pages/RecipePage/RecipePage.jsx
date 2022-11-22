@@ -33,7 +33,7 @@ function RecipePage() {
     }
 
     function getSteps(steps) {
-        const stepsCount = steps.length - 1;
+        const stepsCount = steps.length;
 
         return <div className={styles.steps}>
             {steps.map((step) => {
