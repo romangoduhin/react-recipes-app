@@ -6,29 +6,12 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-}
-
-span,
-p,
-b,
-a,
-button,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li {
+  font-family: 'Merriweather', serif;
   color: $textColor;
-}
-
-li {
   list-style-type: none;
 }
 
 body {
-  font-family: 'Merriweather', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-y: scroll;
