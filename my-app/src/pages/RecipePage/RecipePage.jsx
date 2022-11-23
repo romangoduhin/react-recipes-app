@@ -37,6 +37,8 @@ function RecipePage() {
         ? <div className={styles.wrapper}>
             <h1 className={styles.title}>{currentRecipe.title}</h1>
 
+            <br/>
+
             <div className={styles.preInfo}>
                 <LikesCounter likesCount={currentRecipe.aggregateLikes}/>
                 <DifficultyIndicator level={getRandDiffLvl(0, 5)}/>
@@ -50,19 +52,22 @@ function RecipePage() {
                            isVegan={currentRecipe.vegan}
                            isVegetarian={currentRecipe.vegetarian}
                 />
-
                 <div className={styles.content}>
                     <div className={styles.specification}>
                         <Ingredients servingsCount={currentRecipe.servings}
                                      ingredients={currentRecipe.extendedIngredients}
                         />
+
                         <br/>
+
                         <Categories categories={currentRecipe.dishTypes}/>
                     </div>
 
                     <div className={styles.description}>
                         <Summary summary={currentRecipe.summary}/>
+
                         <br/>
+
                         <Method instructions={currentRecipe.analyzedInstructions[0].steps}/>
                     </div>
                 </div>

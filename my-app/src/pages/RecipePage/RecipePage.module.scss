@@ -10,7 +10,6 @@
   background-color: $white;
 
   .title {
-    margin-bottom: 20px;
     width: 90%;
     @include flexCenter(row);
   }
