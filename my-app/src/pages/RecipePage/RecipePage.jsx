@@ -3,9 +3,14 @@ import {useParams} from "react-router-dom";
 import spoonacularAPI from "../../services/spoonacularApi/api";
 import Loading from "../../components/Loading/Loading";
 import styles from "./RecipePage.module.scss";
-import ButtonWithIcon from "../../components/ButtonWithIcon/ButtonWithIcon";
 import DifficultyIndicator from "./components/DifficultyIndicator/DifficultyIndicator";
-import parse from "html-react-parser";
+import Ingredients from "./components/Ingredients/Ingredients";
+import Categories from "./components/Categories/Categories";
+import LikesCounter from "../../components/LikesCounter/LikesCounter";
+import Summary from "./components/Summary/Summary";
+import Method from "./components/Method/Method";
+import InfoPanel from "./components/InfoPanel/InfoPanel";
+import Image from "./components/Image/Image";
 
 
 function RecipePage() {
@@ -17,50 +22,11 @@ function RecipePage() {
         return Math.floor(min + Math.random() * (max + 1 - min)); //API doesnt have diff level, here we simulate it
     }
 
-    function getIngredients(ingredients) {
-        return ingredients.map((el) => {
-            return <li key={el.id}>
-                <span>
-                    {el.measures.metric.amount}{el.measures.metric.unitShort}&nbsp;
-                </span>
-                {el.name}
-            </li>
-        })
-    }
-
-    function getParsedHtml(string) {
-        return parse(string);
-    }
-
-    function getSteps(steps) {
-        const stepsCount = steps.length;
-
-        return <div className={styles.steps}>
-            {steps.map((step) => {
-                return <div className={styles.step}>
-                    <h4>Step {step.number} of {stepsCount}</h4>
-                    <br/>
-                    <span>{step.step}</span>
-                </div>
-            })}
-        </div>
-    }
-
-    function getCategories(categories) {
-        return <div className={styles.list}>
-            {categories.map((category) => {
-                return <div className={styles.category}>
-                    <span>{category}</span>
-                </div>
-            })}
-        </div>
-    }
-
     async function setCurrentRecipeData(id) {
         let data = await spoonacularAPI.getRecipeById(id);
         if (data) {
             setCurrentRecipe(data)
-        } else return;
+        }
     }
 
     useEffect(() => {
@@ -70,89 +36,34 @@ function RecipePage() {
     return currentRecipe
         ? <div className={styles.wrapper}>
             <h1 className={styles.title}>{currentRecipe.title}</h1>
+
             <div className={styles.preInfo}>
-                <div className={styles.likes}>
-                    <img src="/favouriteIcon.png" alt="icon"/>
-                    <b>{currentRecipe.aggregateLikes}</b>
-                </div>
+                <LikesCounter likesCount={currentRecipe.aggregateLikes}/>
+                <DifficultyIndicator level={getRandDiffLvl(0, 5)}/>
+            </div>
 
-                <div className={styles.difficulty}>
-                    <b>Difficulty</b>
-                    <DifficultyIndicator level={getRandDiffLvl(0, 5)}/>
-                </div>
-            </div>
-            <div className={styles.imageWrapper}>
-                <img className={styles.image} src={currentRecipe.image ? currentRecipe.image : "./logoSmall.png"}
-                     alt="recipe image"/>
-            </div>
+            <Image src={currentRecipe.image}/>
+
             <div className={styles.infoWrapper}>
-                <div className={styles.imageInfo}>
-                    <div>
-                        <span>Cooking time</span>
-                        <b>{currentRecipe.readyInMinutes} m</b>
-                    </div>
-
-                    <div>
-                        <span>Servings</span>
-                        <b>{currentRecipe.servings}</b>
-                    </div>
-
-                    <div>
-                        <span>Vegan</span>
-                        <b>{currentRecipe.vegan ? "Yes" : "No"}</b>
-                    </div>
-
-                    <div>
-                        <span>Vegetarian</span>
-                        <b>{currentRecipe.vegetarian ? "Yes" : "No"}</b>
-                    </div>
-
-                    <div>
-                        <ButtonWithIcon src={'/favouriteIcon.png'}/>
-                    </div>
-                </div>
+                <InfoPanel cookingTime={currentRecipe.readyInMinutes}
+                           servingsCount={currentRecipe.servings}
+                           isVegan={currentRecipe.vegan}
+                           isVegetarian={currentRecipe.vegetarian}
+                />
 
                 <div className={styles.content}>
-                    <div className={styles.ingrAndCateg}>
-                        <div className={styles.ingredients}>
-                            <div className={styles.header}>
-                                <h2>Ingredients</h2>
-                                <br/>
-                                <h4>Number of servings: {currentRecipe.servings}</h4>
-                            </div>
-
-                            <ul className={styles.list}>
-                                {getIngredients(currentRecipe.extendedIngredients)}
-                            </ul>
-                        </div>
+                    <div className={styles.specification}>
+                        <Ingredients servingsCount={currentRecipe.servings}
+                                     ingredients={currentRecipe.extendedIngredients}
+                        />
                         <br/>
-                        <div className={styles.categories}>
-                            <h2>Ingredients</h2>
-                            <br/>
-                            {getCategories(currentRecipe.dishTypes)}
-                            <br/>
-                            <span className={styles.extraInfo}>
-                                These categories are provided as a guide only and do
-                                reflect any ingredients or products displayed or
-                                referred to on this recipe page and that are not
-                                listed in the recipe’s ingredients list.
-                                Find out more about allergy, dietary and lifestyle category tags.
-                            </span>
-                        </div>
+                        <Categories categories={currentRecipe.dishTypes}/>
                     </div>
 
                     <div className={styles.description}>
-                        <div className={styles.summary}>
-                            <h2>Description</h2>
-                            <br/>
-                            <span>{getParsedHtml(currentRecipe.summary)}</span>
-                        </div>
+                        <Summary summary={currentRecipe.summary}/>
                         <br/>
-                        <div className={styles.method}>
-                            <h2>Method</h2>
-                            <br/>
-                            {getSteps(currentRecipe.analyzedInstructions[0].steps)}
-                        </div>
+                        <Method instructions={currentRecipe.analyzedInstructions[0].steps}/>
                     </div>
                 </div>
             </div>

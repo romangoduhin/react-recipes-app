@@ -17,8 +17,11 @@ function DifficultyIndicator({level}) {
     }
 
     return (
-        <div className={styles.indicator}>
-            {getIndicator()}
+        <div className={styles.difficulty}>
+            <b>Difficulty</b>
+            <div className={styles.indicator}>
+                {getIndicator()}
+            </div>
         </div>
     );
 }

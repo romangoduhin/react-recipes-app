@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./RecipeCard.module.scss";
 import PropTypes from 'prop-types';
 import {NavLink} from "react-router-dom";
+import LikesCounter from "../LikesCounter/LikesCounter";
 
 function RecipeCard({size, recipe}) {
 
@@ -14,10 +15,7 @@ function RecipeCard({size, recipe}) {
 
             <div className={size === "medium" ? `${styles.title} ${styles.medium}` : styles.title}>
                 <b>{recipe.title}</b>
-                {size === "medium" && <div className={styles.likesWrapper} >
-                        <img src="/favouriteIcon.png" alt="icon"/>
-                        <b>{recipe.aggregateLikes}</b>
-                </div>}
+                {size === "medium" && <LikesCounter likesCount={recipe.aggregateLikes}/>}
             </div>
 
             <div className={styles.info}>
