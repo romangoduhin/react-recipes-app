@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from "./Search.module.scss";
-import spoonacularAPI from "../../../../services/spoonacularApi/api";
+import spoonacularAPI from "../../services/spoonacularApi/api";
 
 
 function Search() {
@@ -16,7 +16,9 @@ function Search() {
     }
 
     return (
-        <div className={styles.search}>
+        <div style={{backgroundImage:`url(/searchBgImg.jpg)`}} className={styles.search}>
+            <h1>Find a Recipe</h1>
+
             <div className={styles.wrapper}>
                 <input
                     value={value}
@@ -25,7 +27,7 @@ function Search() {
                     type="text"
                 />
 
-                <img onClick={handleSearch} src="/searchIcon.png" alt="icon"/>
+                <img onClick={handleSearch} src="/public/searchIcon.png" alt="icon"/>
             </div>
         </div>
     );

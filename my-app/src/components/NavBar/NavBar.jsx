@@ -1,32 +1,35 @@
 import React from 'react';
 import styles from './NavBar.module.scss';
 import {NavLink} from "react-router-dom";
-import ButtonWithIcon from "../ButtonWithIcon/ButtonWithIcon";
-import Search from "./components/Search/Search";
+
 
 function NavBar() {
     return (
         <div className={styles.navBar}>
-            <div className={styles.logoBlock}>
-                <NavLink to='/'>
-                    <img src="/logoBig.png" alt="logoImage"/>
-                </NavLink>
+            <div className={styles.burgerMenu}>
+                <img src="/burgerIcon.svg" alt="icon"/>
             </div>
 
-            <div className={styles.stick}/>
+            <div className={styles.logoBlock}>
+                   <span className={styles.logoText}>
+                     <NavLink to='/'>simply recipes</NavLink>
+                   </span>
+            </div>
 
-            <Search/>
+            <div className={styles.followBlock}>
+                <span>Follow</span>
+                <a href={'https://github.com/romangoduhin'} target="_blank">
+                        <img src="/githubIcon.png" alt="icon"/>
+                </a>
 
-            <div className={styles.profileBlock}>
-                <ButtonWithIcon src={"/userLogo.png"}/>
+                <a href={'https://www.linkedin.com/in/romangoduhin/'} target="_blank">
+                    <img src="/linkedinIcon.png" alt="icon"/>
+                </a>
+            </div>
 
-                <div className={styles.auth}>
-                    <button>Login</button>
-
-                    <span> or </span>
-
-                    <button>Sign up</button>
-                </div>
+            <div className={styles.searchBlock}>
+                <span>Search</span>
+                <img src="/searchIcon.svg" alt="icon"/>
             </div>
         </div>
     );

@@ -7,56 +7,77 @@
   position: sticky;
   top: 0;
   width: 100%;
-  height: 10vh;
+  height: 8vh;
   @include flexCenter(row);
-  justify-content: flex-start;
-  border-bottom: $gray solid 2px;
-  box-shadow: 0 0 4px 0 $green;
-  background-color: $white;
+  justify-content: space-between;
+
+  .burgerMenu {
+    width: 5%;
+    height: 100%;
+    @include flexCenter(row);
+
+    img {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+  }
 
   .logoBlock {
-    width: 20%;
+    width: 75%;
     height: 100%;
     @include flexCenter(column);
 
-    img {
-      width: 200px;
-      height: 110px;
+    .logoText {
+      margin-left: 15%;
+      font-size: 31px;
+      letter-spacing: -0.05em;
+      font-weight: 700;
       cursor: pointer;
-      transition: 1s;
+      transition: 0.1s;
+
+      & > a {
+        color: $red;
+      }
 
       &:hover {
-        transform: scale(1.1);
+        transform: scale(1.01);
       }
     }
   }
 
-  .stick {
-    width: 2px;
-    height: 70%;
-    background-color: $gray;
-  }
-
-  .profileBlock {
-    width: 10%;
+  .followBlock, .searchBlock {
+    width: 8%;
     height: 100%;
     @include flexCenter(row);
-    justify-content: space-between;
+    justify-content: flex-start;
+    column-gap: 5px;
 
-    .auth {
-      button, span {
-        font-size: 14px;
+    span {
+      color: $lightGray;
+    }
+  }
+
+  .followBlock {
+    & > a {
+      width: 25px;
+      height: 25px;
+      @include flexCenter(row);
+      border-radius: 25px;
+      background-color: $red;
+
+      & > img {
+        width: 15px;
+        height: 15px;
       }
+    }
+  }
 
-      button {
-        border: none;
-        background-color: $white;
-        cursor: pointer;
-
-        &:hover {
-          color: $green;
-        }
-      }
+  .searchBlock {
+    & > img {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
     }
   }
 }
