@@ -1,7 +1,9 @@
 @import "../../assets/mixins";
 @import "../../assets/variables";
 
+
 .navBar {
+  z-index: 2;
   position: sticky;
   top: 0;
   width: 100%;
@@ -11,7 +13,6 @@
   border-bottom: $gray solid 2px;
   box-shadow: 0 0 4px 0 $green;
   background-color: $white;
-  z-index: 2;
 
   .logoBlock {
     width: 20%;
@@ -31,38 +32,9 @@
   }
 
   .stick {
-    height: 70%;
     width: 2px;
+    height: 70%;
     background-color: $gray;
-  }
-
-  .searchBlock {
-    margin-right: 200px;
-    margin-left: 200px;
-    width: 40%;
-    height: 100%;
-    @include flexCenter(column);
-
-    input {
-      padding-left: 20px;
-      width: 100%;
-      height: 60%;
-      font-size: 16px;
-      color: $white;
-      background-color: $gray;
-      border: 1px solid $darkGray;
-      border-radius: 8px;
-      cursor: pointer;
-
-      &:hover {
-        outline: 1px solid $darkGray;
-      }
-
-      &:focus {
-        outline: 1px solid $green;
-        background-color: $white;
-      }
-    }
   }
 
   .profileBlock {

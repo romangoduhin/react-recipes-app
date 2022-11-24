@@ -1,0 +1,52 @@
+@import "../../../../assets/mixins";
+@import "../../../../assets/variables";
+
+.search {
+  margin-right: 200px;
+  margin-left: 200px;
+  width: 40%;
+  height: 100%;
+  @include flexCenter(column);
+
+  .wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include flexCenter(row);
+
+    input {
+       padding-left: 20px;
+      width: 100%;
+      height: 40px;
+      font-size: 16px;
+      background-color: $gray;
+      border: 1px solid $darkGray;
+      border-radius: 8px;
+      cursor: pointer;
+
+      &:hover {
+        outline: 1px solid $darkGray;
+      }
+
+      &:focus {
+        outline: 1px solid $green;
+        background-color: $white;
+      }
+    }
+
+    img {
+      z-index: 3;
+      position: absolute;
+      top: 20px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      transition: 1s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

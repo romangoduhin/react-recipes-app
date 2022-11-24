@@ -3,6 +3,7 @@ import styles from "./Carousel.module.scss";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import PropTypes from "prop-types";
 
+
 function Carousel({slidersCount, recipes}) {
     const [offset, setOffset] = useState(0);
     const [slideWidth, setSlideWidth] = useState(0);
@@ -17,6 +18,12 @@ function Carousel({slidersCount, recipes}) {
             const newOffset = offset - slideWidth;
             const maxOffset = -(slideWidth * (slidersCount - 1));
             setOffset(Math.max(maxOffset, newOffset))
+        }
+    }
+
+    function getSlides(recipes) {
+        if (recipes) {
+            return recipes.map(el => <RecipeCard size={'medium'} key={el.id} recipe={el}/>)
         }
     }
 
@@ -46,11 +53,11 @@ function Carousel({slidersCount, recipes}) {
 
                 <div className={styles.buttons}>
                     <div className={styles.buttonLeft} onClick={() => handleArrowCLick("left")}>
-                        <img src={'/arrow.png'}/>
+                        <img src={'/arrow.png'} alt='icon'/>
                     </div>
 
                     <div className={styles.buttonRight} onClick={() => handleArrowCLick("right")}>
-                        <img src={'/arrow.png'}/>
+                        <img src={'/arrow.png'} alt='icon'/>
                     </div>
                 </div>
             </div>
@@ -60,7 +67,7 @@ function Carousel({slidersCount, recipes}) {
                      style={{
                          transform: `translateX(${offset}px)`
                      }}>
-                    {recipes && recipes.map(el => <RecipeCard size={'medium'} key={el.id} recipe={el}/>)}
+                    {getSlides(recipes)}
                 </div>
             </div>
 
@@ -70,12 +77,12 @@ function Carousel({slidersCount, recipes}) {
 
 Carousel.defaultProps = {
     slidersCount: 3,
-    recipes: {},
+    recipes: [],
 }
 
 Carousel.propTypes = {
     slidersCount: PropTypes.number,
-    recipes: PropTypes.object,
+    recipes: PropTypes.array,
 }
 
 export default Carousel;

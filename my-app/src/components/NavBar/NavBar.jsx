@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './NavBar.module.scss';
 import {NavLink} from "react-router-dom";
 import ButtonWithIcon from "../ButtonWithIcon/ButtonWithIcon";
+import Search from "./components/Search/Search";
 
 function NavBar() {
     return (
@@ -14,12 +15,7 @@ function NavBar() {
 
             <div className={styles.stick}/>
 
-            <div className={styles.searchBlock}>
-                <input
-                    placeholder="Search recipes"
-                    type="text"
-                />
-            </div>
+            <Search/>
 
             <div className={styles.profileBlock}>
                 <ButtonWithIcon src={"/userLogo.png"}/>

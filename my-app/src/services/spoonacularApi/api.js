@@ -13,7 +13,6 @@ const spoonacularAPI = {
             return response.data.recipes
         } catch (err) {
             console.log(err);
-            return;
         }
     },
     getRecipeById: async (id) => {
@@ -22,7 +21,14 @@ const spoonacularAPI = {
             return response.data
         } catch (err) {
             console.log(err);
-            return;
+        }
+    },
+    getRecipeBySearch: async (query) => {
+        try {
+            const response = await recipesInstance.get(`complexSearch?query=${query}&apiKey=${apiKey}`)
+            return response.data
+        } catch (err) {
+            console.log(err)
         }
     }
 }
