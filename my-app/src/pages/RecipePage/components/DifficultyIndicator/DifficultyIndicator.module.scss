@@ -1,0 +1,29 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+.difficulty {
+  @include flexCenter(row);
+  column-gap: 10px;
+
+  & > b {
+    font-size: 22px;
+  }
+
+  .indicator {
+    @include flexCenter(row);
+    column-gap: 5px;
+
+    div {
+      width: 15px;
+      height: 15px;
+      border-radius: 10px;
+      background-color: $gray;
+      border: 1px solid $darkGray;
+
+      &.active {
+        background-color: $green;
+        border: 1px solid $green;
+      }
+    }
+  }
+}

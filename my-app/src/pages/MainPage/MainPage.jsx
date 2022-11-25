@@ -1,25 +1,40 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import styles from './MainPage.module.scss';
-import spoonacularAPI from "../../services/spoonacularApi/api"
 import RecipeCard from "../../components/RecipeCard/RecipeCard";
+import {useDispatch, useSelector} from "react-redux";
+import {setPopularRecipesThunk, setRandomRecipesThunk} from "../../redux/thunks/recipesThunks";
+import Carousel from "../../components/Carousel/Carousel";
+import Loading from "../../components/Loading/Loading";
+import Search from "../../components/Search/Search";
 
 function MainPage() {
-    const [recipes, setRecipes] = useState([]);
+    const randomRecipesCount = 10;
+    const popularRecipesCount = 3;
 
-    async function setRandomRecipes() {
-        const count = 2;
-        const recipes = await spoonacularAPI.getRandomRecipes(count);
-        setRecipes(recipes);
-    }
+    const {randomRecipes} = useSelector((state) => state.recipes);
+    const {popularRecipes} = useSelector((state) => state.recipes);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        setRandomRecipes();
+        dispatch(setRandomRecipesThunk(randomRecipesCount));
+        dispatch(setPopularRecipesThunk(popularRecipesCount));
     }, [])
 
     return (
         <div className={styles.mainPage}>
+            <Search/>
+
+            {popularRecipes
+                ? <Carousel slidersCount={popularRecipesCount} recipes={popularRecipes}/>
+                : <Loading/>
+            }
+
             <div className={styles.recipesList}>
-                {recipes && recipes.map(el => <RecipeCard key={el.id} data={el}/>)}
+                {randomRecipes
+                    ? randomRecipes.map(el => <RecipeCard size={'small'} key={el.id} recipe={el}/>)
+                    : <Loading/>
+                }
             </div>
         </div>
     );

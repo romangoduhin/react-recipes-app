@@ -1,0 +1,19 @@
+@import "../../assets/mixins";
+@import "../../assets/variables";
+
+
+.likes {
+  width: 10%;
+  height: 100%;
+  @include flexCenter(row);
+  column-gap: 10px;
+
+  & > img {
+    height: 22px;
+  }
+
+  & > b {
+    font-size: 20px;
+  }
+}
+

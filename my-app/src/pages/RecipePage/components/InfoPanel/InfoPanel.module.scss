@@ -1,0 +1,18 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.infoPanel {
+  width: 60%;
+  height: 100px;
+  @include flexCenter(row);
+  background-color: $white;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 2px 2px $darkGray,
+  -2px 2px 2px $darkGray, 2px 2px 2px $darkGray;
+
+  & > div {
+    width: calc(100% / 5);
+    @include flexCenter(column);
+  }
+}

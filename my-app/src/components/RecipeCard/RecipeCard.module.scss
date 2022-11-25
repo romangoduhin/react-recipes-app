@@ -4,16 +4,39 @@
 .recipeCard {
   margin: 20px 0 20px 0;
   padding: 5px;
-  width: 250px;
-  min-height: 50vh;
-  height: auto;
+  cursor: pointer;
+
+
+  &.small {
+    width: 250px;
+    min-height: 50vh;
+  }
+
+  &.medium {
+    width: 100%;
+    min-height: 50vh;
+  }
+
+  &:hover {
+    .title > b {
+      text-decoration: underline;
+    }
+  }
 
   .image {
     margin-bottom: 10px;
     width: 100%;
-    height: 220px;
     border-radius: 16px;
+    cursor: pointer;
     transition: 1s;
+
+    &.small {
+      height: 220px;
+    }
+
+    &.medium {
+      height: 350px;
+    }
 
     &:hover {
       transform: scale(1.02);
@@ -28,6 +51,27 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 16px;
+
+    &.medium {
+      @include flexCenter(row);
+      justify-content: space-between;
+
+      & > b {
+        width: 60%;
+        height: 100%;
+        @include flexCenter(row);
+        justify-content: flex-start;
+      }
+
+      & > .likesWrapper {
+        width: 40%;
+        height: 100%;
+        @include flexCenter(row);
+        justify-content: flex-end;
+        column-gap: 10px;
+        font-size: 18px;
+      }
+    }
   }
 
   .info {

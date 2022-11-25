@@ -1,0 +1,86 @@
+@import "../../assets/mixins";
+@import "../../assets/variables";
+
+.carousel {
+  width: 50%;
+  height: auto;
+  @include flexCenter(column);
+
+  .carouselHeader {
+    width: 100%;
+    height: 50px;
+    @include flexCenter(row);
+    justify-content: space-between;
+
+    .title {
+      width: 85%;
+      height: 100%;
+
+      h2 {
+        margin-bottom: 10px;
+      }
+    }
+
+    .buttons {
+      width: 100px;
+      height: 80%;
+      @include flexCenter(row);
+      justify-content: flex-start;
+      border: 1px solid $darkGray;
+      border-radius: 20px;
+
+      & > div {
+        width: 50%;
+        height: 100%;
+        @include flexCenter(row);
+        cursor: pointer;
+
+        &:hover {
+          background-color: $gray;
+        }
+
+        &:nth-child(1) {
+          border-radius: 20px 0 0 20px;
+          border-right: 1px solid $darkGray;
+
+          img {
+            transform: rotate(180deg);
+          }
+        }
+
+        &:nth-child(2) {
+          border-radius: 0 20px 20px 0;
+          border-right: 1px solid $darkGray;
+        }
+
+        img {
+          width: 30px;
+          height: 30px;
+          border: none;
+        }
+      }
+    }
+  }
+
+  .visibleWindow {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .slidersContainer {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      transition: translate;
+      transition-property: transform;
+      transition-duration: 300ms;
+      transition-timing-function: ease-in-out;
+
+      & > div {
+        min-width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
