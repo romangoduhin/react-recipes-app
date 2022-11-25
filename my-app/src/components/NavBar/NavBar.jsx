@@ -1,9 +1,19 @@
 import React from 'react';
 import styles from './NavBar.module.scss';
 import {NavLink} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {setIsSearchOpen} from "../../redux/actions/appActions";
 
 
 function NavBar() {
+    const dispatch = useDispatch();
+
+    const {isSearchOpen} = useSelector((state) => state.app);
+
+    async function handleOpen() {
+        dispatch(setIsSearchOpen(!isSearchOpen))
+    }
+
     return (
         <div className={styles.navBar}>
             <div className={styles.burgerMenu}>
@@ -19,7 +29,7 @@ function NavBar() {
             <div className={styles.followBlock}>
                 <span>Follow</span>
                 <a href={'https://github.com/romangoduhin'} target="_blank">
-                        <img src="/githubIcon.png" alt="icon"/>
+                    <img src="/githubIcon.png" alt="icon"/>
                 </a>
 
                 <a href={'https://www.linkedin.com/in/romangoduhin/'} target="_blank">
@@ -29,7 +39,7 @@ function NavBar() {
 
             <div className={styles.searchBlock}>
                 <span>Search</span>
-                <img src="/searchIcon.svg" alt="icon"/>
+                <img onClick={handleOpen} src="/searchIcon.svg" alt="icon"/>
             </div>
         </div>
     );

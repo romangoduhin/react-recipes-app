@@ -10,6 +10,7 @@
   height: 8vh;
   @include flexCenter(row);
   justify-content: space-between;
+  background-color: $white;
 
   .burgerMenu {
     width: 5%;
