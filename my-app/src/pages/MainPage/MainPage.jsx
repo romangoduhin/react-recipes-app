@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setPopularRecipesThunk, setRandomRecipesThunk} from "../../redux/thunks/recipesThunks";
 import Carousel from "../../components/Carousel/Carousel";
 import Loading from "../../components/Loading/Loading";
+import Search from "../../components/Search/Search";
 
 function MainPage() {
     const randomRecipesCount = 10;
@@ -22,6 +23,8 @@ function MainPage() {
 
     return (
         <div className={styles.mainPage}>
+            <Search/>
+
             {popularRecipes
                 ? <Carousel slidersCount={popularRecipesCount} recipes={popularRecipes}/>
                 : <Loading/>
