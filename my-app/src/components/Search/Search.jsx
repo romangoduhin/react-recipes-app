@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from "./Search.module.scss";
 import spoonacularAPI from "../../services/spoonacularApi/api";
 import Modal from "../Modal/Modal";
@@ -21,7 +21,8 @@ function Search() {
         dispatch(setIsSearchOpen(!isSearchOpen))
     }
 
-    async function handleSearch() {
+    async function handleSearch(e) {
+        e.preventDefault();
         const data = await spoonacularAPI.getRecipeBySearch(value)
     }
 
@@ -43,7 +44,7 @@ function Search() {
                 <br/>
                 <br/>
 
-                <div className={styles.inputWrapper}>
+                <form className={styles.inputWrapper} onSubmit={handleSearch}>
                     <div className={styles.imgWrapper}>
                         <img onClick={handleSearch} src="/searchIcon.svg" alt="icon"/>
                     </div>
@@ -51,8 +52,9 @@ function Search() {
                     <input value={value}
                            onChange={handleChange}
                            className={styles.input}
-                           placeholder={'Find a Recipe'}/>
-                </div>
+                           placeholder={'Find a Recipe'}
+                    />
+                </form>
             </div>
         </Modal>}
     </>
