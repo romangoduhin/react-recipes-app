@@ -1,5 +1,6 @@
-@import "../../assets/mixins";
-@import "../../assets/variables";
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
 
 .carousel {
   width: 50%;
@@ -16,8 +17,10 @@
       width: 85%;
       height: 100%;
 
-      h2 {
+      h1 {
         margin-bottom: 10px;
+        font-weight: normal;
+        color: $white;
       }
     }
 

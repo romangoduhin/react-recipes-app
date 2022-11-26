@@ -1,0 +1,12 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.button {
+  transition: 0.5s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.15);
+  }
+}

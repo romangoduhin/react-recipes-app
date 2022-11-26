@@ -1,0 +1,29 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+.menuList {
+  margin-top: 40px;
+  width: 100%;
+
+  ul {
+    @include flexCenter(column);
+    row-gap: 20px;
+
+    li {
+      a {
+        text-transform: uppercase;
+        font-weight: 600;
+        color: $white;
+        cursor: pointer;
+
+        &.active {
+          color: $red;
+        }
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+  }
+}

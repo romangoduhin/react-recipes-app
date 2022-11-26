@@ -2,6 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import styles from "./Carousel.module.scss";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import PropTypes from "prop-types";
+import Loading from "../Loading/Loading";
 
 
 function Carousel({slidersCount, recipes}) {
@@ -23,30 +24,31 @@ function Carousel({slidersCount, recipes}) {
 
     function getSlides(recipes) {
         if (recipes) {
-            return recipes.map(el => <RecipeCard size={'medium'} key={el.id} recipe={el}/>)
+            return recipes.map(el => <RecipeCard key={el.id} recipe={el}/>)
         }
     }
 
     useEffect(() => {
-        const resizeHandler = () => {
-            const width = visibleWindowRef.current.clientWidth;
-            setSlideWidth(width);
-            setOffset(0);
-        }
-        resizeHandler();
+        if (recipes) {
+            const resizeHandler = () => {
+                const width = visibleWindowRef.current.clientWidth;
+                setSlideWidth(width);
+                setOffset(0);
+            }
+            resizeHandler();
 
-        window.addEventListener('resize', resizeHandler)
+            window.addEventListener('resize', resizeHandler)
 
-        return () => {
-            window.removeEventListener('resize', resizeHandler)
+            return () => {
+                window.removeEventListener('resize', resizeHandler)
+            }
         }
     }, [])
 
-    return (
-        <div className={styles.carousel}>
+    return recipes ? <div className={styles.carousel}>
             <div className={styles.carouselHeader}>
                 <div className={styles.title}>
-                    <h2>Popular recipes this week</h2>
+                    <h1>Popular recipes this week</h1>
 
                     <p>Here are the top recipes customers are cooking this week</p>
                 </div>
@@ -70,14 +72,13 @@ function Carousel({slidersCount, recipes}) {
                     {getSlides(recipes)}
                 </div>
             </div>
-
         </div>
-    );
+        : <Loading/>
 }
 
 Carousel.defaultProps = {
     slidersCount: 3,
-    recipes: [],
+    recipes: null,
 }
 
 Carousel.propTypes = {

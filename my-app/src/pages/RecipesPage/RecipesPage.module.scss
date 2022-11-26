@@ -1,0 +1,23 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.wrapper {
+  padding-top: 40px;
+  width: 100%;
+  min-height: 92vh;
+  height: 100%;
+  @include flexCenter(column);
+  background-color: $lightBlack;
+
+  .recipesList {
+    width: 80%;
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    align-items: start;
+    grid-template-columns: repeat(auto-fill, min(320px));
+    gap: 20px 20px ;
+  }
+}
+

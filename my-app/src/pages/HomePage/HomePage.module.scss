@@ -1,0 +1,15 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.wrapper {
+  width: 100%;
+  min-height: 90vh;
+  height: auto;
+  @include flexCenter(column);
+  align-items: flex-start;
+  background-color: $white;
+}
+
+
+

@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import styles from "./Search.module.scss";
-import spoonacularAPI from "../../services/spoonacularApi/api";
-import Modal from "../Modal/Modal";
+import spoonacularAPI from "../../../../services/spoonacularApi/api";
+import Modal from "../../../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
-import {setIsSearchOpen} from "../../redux/actions/appActions";
+import {setIsSearchOpen} from "../../../../redux/actions/appActions";
+import IconButton from "../../../../components/IconButton/IconButton";
 
 
 function Search() {
@@ -31,14 +32,14 @@ function Search() {
             <h1>Find a Recipe</h1>
             <br/>
             <div className={styles.inputButton} onClick={handleSwitch}>
-                <img src="/searchIcon.svg" alt="icon"/>
+                <IconButton src={'/searchIcon.svg'} width={35} height={35}/>
             </div>
         </div>
 
         {isSearchOpen && <Modal>
             <div className={styles.modal}>
                 <div className={styles.header}>
-                    <img onClick={handleSwitch} src="/closeIcon.svg" alt="icon"/>
+                    <IconButton src={'/closeIcon.svg'} width={25} height={25} onClick={handleSwitch}/>
                 </div>
 
                 <br/>
@@ -46,7 +47,7 @@ function Search() {
 
                 <form className={styles.inputWrapper} onSubmit={handleSearch}>
                     <div className={styles.imgWrapper}>
-                        <img onClick={handleSearch} src="/searchIcon.svg" alt="icon"/>
+                        <IconButton src={'/searchIcon.svg'} width={50} height={50} onClick={handleSearch}/>
                     </div>
 
                     <input value={value}

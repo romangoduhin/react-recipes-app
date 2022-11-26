@@ -11,3 +11,9 @@
   2px 0px 2px $color,
   0px -2px 2px $color;
 }
+
+@mixin cutToEllipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

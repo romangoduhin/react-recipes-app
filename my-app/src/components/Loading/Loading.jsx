@@ -3,22 +3,23 @@ import PropTypes from "prop-types";
 import ReactLoading from 'react-loading';
 import styles from "./Loading.module.scss";
 
+
 function Loading({color, height, width}) {
     return <div className={styles.loading}>
-        <ReactLoading type={'bubbles'} color={color} height={height} width={width}/>
+        <ReactLoading type={'bubbles'} color={color} height={`${height}px`} width={`${width}px`}/>
     </div>
 }
 
 Loading.defaultProps = {
-    color: '#178841',
-    height: "200px",
-    width: "250px"
+    color: '#ef4229',
+    height: 200,
+    width: 250,
 }
 
 Loading.propTypes = {
     color: PropTypes.string,
-    height: PropTypes.string,
-    width: PropTypes.string,
+    height: PropTypes.number,
+    width: PropTypes.number,
 }
 
 export default Loading;
