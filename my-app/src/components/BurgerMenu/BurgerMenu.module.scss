@@ -46,13 +46,15 @@
       row-gap: 20px;
 
       li {
-        text-transform: uppercase;
-        font-weight: 600;
-        color: $white;
-        cursor: pointer;
+        a {
+          text-transform: uppercase;
+          font-weight: 600;
+          color: $white;
+          cursor: pointer;
 
-        &:hover {
-          color: $red;
+          &:hover {
+            color: $red;
+          }
         }
       }
     }

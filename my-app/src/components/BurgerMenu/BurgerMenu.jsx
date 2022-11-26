@@ -3,6 +3,7 @@ import styles from "./BurgerMenu.module.scss";
 import PropTypes from "prop-types";
 import IconButton from "../IconButton/IconButton";
 import RandomButton from "./components/RandomButton/RandomButton";
+import {NavLink} from "react-router-dom";
 
 
 function BurgerMenu({isOpen, handleSwitch}) {
@@ -18,11 +19,31 @@ function BurgerMenu({isOpen, handleSwitch}) {
 
             <div className={styles.menuList}>
                 <ul>
-                    <li>Recipes</li>
-                    <li>LinkedIn</li>
-                    <li>GitHub</li>
-                    <li>Sign In</li>
-                    <li>Sign Up</li>
+                    <li>
+                        <NavLink to={'/recipes'}>
+                            Recipes
+                        </NavLink>
+                    </li>
+                    <li>
+                        <a href={'https://www.linkedin.com/in/romangoduhin/'} target="_blank">
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a href={'https://github.com/romangoduhin'} target="_blank">
+                            GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <NavLink to={'/signin'}>
+                            Sign In
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={'/signup'}>
+                            Sign Up
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
         </div>
