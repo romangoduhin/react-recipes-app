@@ -18,7 +18,8 @@ function NavBar() {
         dispatch(setIsSearchOpen(!isSearchOpen))
     }
 
-    async function handleMenuSwitch() {
+    async function handleMenuSwitch(e) {
+        e.preventDefault();
         setIsMenuOpen(!isMenuOpen)
     }
 

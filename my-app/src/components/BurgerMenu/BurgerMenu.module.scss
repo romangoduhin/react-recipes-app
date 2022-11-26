@@ -6,12 +6,6 @@
   width: 5%;
   height: 100%;
   @include flexCenter(row);
-
-  img {
-    width: 25px;
-    height: 25px;
-    cursor: pointer;
-  }
 }
 
 .burgerMenu {
@@ -35,28 +29,5 @@
     visibility: visible;
     transform: translateX(0%);
     transition: 0.5s;
-  }
-
-  .menuList {
-    margin-top: 40px;
-    width: 100%;
-
-    ul {
-      @include flexCenter(column);
-      row-gap: 20px;
-
-      li {
-        a {
-          text-transform: uppercase;
-          font-weight: 600;
-          color: $white;
-          cursor: pointer;
-
-          &:hover {
-            color: $red;
-          }
-        }
-      }
-    }
   }
 }
