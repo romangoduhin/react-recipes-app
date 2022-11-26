@@ -1,0 +1,33 @@
+@import "../../../../assets/mixins";
+@import "../../../../assets/variables";
+
+
+.wrapper {
+  width: 100%;
+  @include flexCenter(column);
+
+  .randomButton {
+    width: 80px;
+    height: 80px;
+    @include flexCenter(row);
+    border-radius: 50%;
+    background-color: $red;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    img {
+      width: 35px;
+      height: 50px;
+    }
+  }
+
+  .text {
+    font-size: 20px;
+    color: $red;
+  }
+}
+

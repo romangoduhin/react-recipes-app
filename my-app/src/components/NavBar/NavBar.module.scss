@@ -1,5 +1,5 @@
-@import "../../assets/mixins";
-@import "../../assets/variables";
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
 
 
 .navBar {
@@ -11,18 +11,6 @@
   @include flexCenter(row);
   justify-content: space-between;
   background-color: $white;
-
-  .burgerMenu {
-    width: 5%;
-    height: 100%;
-    @include flexCenter(row);
-
-    img {
-      width: 25px;
-      height: 25px;
-      cursor: pointer;
-    }
-  }
 
   .logoBlock {
     width: 75%;
@@ -71,14 +59,6 @@
         width: 15px;
         height: 15px;
       }
-    }
-  }
-
-  .searchBlock {
-    & > img {
-      width: 25px;
-      height: 25px;
-      cursor: pointer;
     }
   }
 }

@@ -5,7 +5,6 @@ import {NavLink} from "react-router-dom";
 import LikesCounter from "../LikesCounter/LikesCounter";
 
 function RecipeCard({size, recipe}) {
-
     return recipe && <div className={`${styles.recipeCard} ${styles[size]}`} key={recipe.id}>
         <NavLink to={`/recipe/${recipe.id}`}>
             <img className={`${styles.image} ${styles[size]}`}

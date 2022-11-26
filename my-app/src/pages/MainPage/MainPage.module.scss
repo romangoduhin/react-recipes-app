@@ -1,5 +1,5 @@
-@import "../../assets/mixins";
-@import "../../assets/variables";
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
 
 
 .mainPage {
@@ -7,15 +7,16 @@
   min-height: 90vh;
   height: auto;
   @include flexCenter(column);
+  align-items: flex-start;
   background-color: $white;
 
-  .recipesList {
-    width: 50%;
-    height: 100%;
-    @include flexCenter(row);
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
+  //.recipesList {
+  //  width: 100%;
+  //  height: 100%;
+  //  @include flexCenter(row);
+  //  justify-content: space-around;
+  //  flex-wrap: wrap;
+  //}
 }
 
 

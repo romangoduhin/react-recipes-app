@@ -1,5 +1,5 @@
-@import "../../assets/mixins";
-@import "../../assets/variables";
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
 
 
 .likes {
@@ -8,11 +8,11 @@
   @include flexCenter(row);
   column-gap: 10px;
 
-  & > img {
+  img {
     height: 22px;
   }
 
-  & > b {
+  b {
     font-size: 20px;
   }
 }

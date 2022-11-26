@@ -1,11 +1,11 @@
-@import "../../assets/mixins";
-@import "../../assets/variables";
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
 
 .recipeCard {
   margin: 20px 0 20px 0;
   padding: 5px;
   cursor: pointer;
-
 
   &.small {
     width: 250px;
@@ -26,7 +26,6 @@
   .image {
     margin-bottom: 10px;
     width: 100%;
-    border-radius: 16px;
     cursor: pointer;
     transition: 1s;
 

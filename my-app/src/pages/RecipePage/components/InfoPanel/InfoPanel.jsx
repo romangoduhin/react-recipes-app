@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./InfoPanel.module.scss";
-import ButtonWithIcon from "../../../../components/ButtonWithIcon/ButtonWithIcon";
+import IconButton from "../../../../components/IconButton/IconButton";
 import PropTypes from "prop-types";
 
 
@@ -27,7 +27,7 @@ function InfoPanel({cookingTime, servingsCount, isVegan, isVegetarian}) {
         </div>
 
         <div>
-            <ButtonWithIcon src={'/favouriteIcon.png'}/>
+            <IconButton src={'/favouriteIcon.png'}/>
         </div>
     </div>
 }
