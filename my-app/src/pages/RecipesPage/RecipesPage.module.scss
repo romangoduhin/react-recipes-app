@@ -10,6 +10,11 @@
   @include flexCenter(column);
   background-color: $lightBlack;
 
+  .notFound {
+    font-size: 40px;
+    color: $white;
+  }
+
   .recipesList {
     width: 80%;
     display: grid;
