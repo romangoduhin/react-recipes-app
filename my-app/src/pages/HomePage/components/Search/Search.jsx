@@ -36,27 +36,25 @@ function Search() {
             </div>
         </div>
 
-        {isSearchOpen && <Modal>
-            <div className={styles.modal}>
-                <div className={styles.header}>
-                    <IconButton src={'/closeIcon.svg'} width={25} height={25} onClick={handleSwitch}/>
+        {isSearchOpen && <Modal backgroundColor={'rgba(255,255,255, 0.8)'}>
+            <div className={styles.header}>
+                <IconButton src={'/closeIcon.svg'} width={25} height={25} onClick={handleSwitch}/>
+            </div>
+
+            <br/>
+            <br/>
+
+            <form className={styles.inputWrapper} onSubmit={handleSearch}>
+                <div className={styles.imgWrapper}>
+                    <IconButton src={'/searchIcon.svg'} width={50} height={50} onClick={handleSearch}/>
                 </div>
 
-                <br/>
-                <br/>
-
-                <form className={styles.inputWrapper} onSubmit={handleSearch}>
-                    <div className={styles.imgWrapper}>
-                        <IconButton src={'/searchIcon.svg'} width={50} height={50} onClick={handleSearch}/>
-                    </div>
-
-                    <input value={value}
-                           onChange={handleChange}
-                           className={styles.input}
-                           placeholder={'Find a Recipe'}
-                    />
-                </form>
-            </div>
+                <input value={value}
+                       onChange={handleChange}
+                       className={styles.input}
+                       placeholder={'Find a Recipe'}
+                />
+            </form>
         </Modal>}
     </>
 }

@@ -3,7 +3,7 @@ import styles from './NavBar.module.scss';
 import {NavLink} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {setIsSearchOpen} from "../../redux/actions/appActions";
-import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import IconButton from "../IconButton/IconButton";
 
 
@@ -18,14 +18,13 @@ function NavBar() {
         dispatch(setIsSearchOpen(!isSearchOpen))
     }
 
-    async function handleMenuSwitch(e) {
-        e.preventDefault();
+    async function handleMenuSwitch() {
         setIsMenuOpen(!isMenuOpen)
     }
 
     return (
         <div className={styles.navBar}>
-           <BurgerMenu isOpen={isMenuOpen} handleSwitch={handleMenuSwitch}/>
+            <BurgerMenu isOpen={isMenuOpen} handleSwitch={handleMenuSwitch}/>
 
             <div className={styles.logoBlock}>
                    <span className={styles.logoText}>
