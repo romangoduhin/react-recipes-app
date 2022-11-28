@@ -11,7 +11,8 @@ function BurgerMenu({isOpen, handleSwitch}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     function handleSwitchModal() {
-        setIsModalOpen(!isModalOpen)
+        isOpen && handleSwitch();
+        setIsModalOpen(!isModalOpen);
     }
 
     return <>

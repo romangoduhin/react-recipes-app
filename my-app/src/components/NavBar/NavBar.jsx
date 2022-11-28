@@ -18,14 +18,13 @@ function NavBar() {
         dispatch(setIsSearchOpen(!isSearchOpen))
     }
 
-    async function handleMenuSwitch(e) {
-        e.preventDefault();
+    async function handleMenuSwitch() {
         setIsMenuOpen(!isMenuOpen)
     }
 
     return (
         <div className={styles.navBar}>
-           <BurgerMenu isOpen={isMenuOpen} handleSwitch={handleMenuSwitch}/>
+            <BurgerMenu isOpen={isMenuOpen} handleSwitch={handleMenuSwitch}/>
 
             <div className={styles.logoBlock}>
                    <span className={styles.logoText}>

@@ -16,7 +16,7 @@ function RandomRecipeModal({handleSwitchModal}) {
         if(text.length === 1) {
             return text
         }
-        text = text.slice(0, 2);
+        text = text.slice(0, 4);
         text.push('...');
         return text.join(' ');
     }
