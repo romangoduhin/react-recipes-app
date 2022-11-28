@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import styles from "./Search.module.scss";
-import spoonacularAPI from "../../../../services/spoonacularApi/api";
 import Modal from "../../../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import {setIsSearchOpen} from "../../../../redux/actions/appActions";
 import IconButton from "../../../../components/IconButton/IconButton";
+import {setSearchedRecipesThunk} from "../../../../redux/thunks/recipesThunks";
 
 
 function Search() {
@@ -22,9 +22,9 @@ function Search() {
         dispatch(setIsSearchOpen(!isSearchOpen))
     }
 
-    async function handleSearch(e) {
+    function handleSearch(e) {
         e.preventDefault();
-        const data = await spoonacularAPI.getRecipeBySearch(value)
+        dispatch(setSearchedRecipesThunk(value))
     }
 
     return <>

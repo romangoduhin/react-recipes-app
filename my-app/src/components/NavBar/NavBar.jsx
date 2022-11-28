@@ -22,8 +22,7 @@ function NavBar() {
         setIsMenuOpen(!isMenuOpen)
     }
 
-    return (
-        <div className={styles.navBar}>
+    return  <div className={styles.navBar}>
             <BurgerMenu isOpen={isMenuOpen} handleSwitch={handleMenuSwitch}/>
 
             <div className={styles.logoBlock}>
@@ -34,11 +33,11 @@ function NavBar() {
 
             <div className={styles.followBlock}>
                 <span>Follow</span>
-                <a href={'https://github.com/romangoduhin'} target="_blank">
+                <a href={'https://github.com/romangoduhin'} target="_blank" rel="noreferrer">
                     <img src="/githubIcon.png" alt="icon"/>
                 </a>
 
-                <a href={'https://www.linkedin.com/in/romangoduhin/'} target="_blank">
+                <a href={'https://www.linkedin.com/in/romangoduhin/'} target="_blank" rel="noreferrer">
                     <img src="/linkedinIcon.png" alt="icon"/>
                 </a>
             </div>
@@ -48,7 +47,6 @@ function NavBar() {
                 <IconButton src={'/searchIcon.svg'} width={25} height={25} onClick={handleSearchSwitch}/>
             </div>
         </div>
-    );
 }
 
 export default NavBar;

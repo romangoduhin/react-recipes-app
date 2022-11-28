@@ -16,22 +16,21 @@ function MenuList({onClick}) {
             </li>
             <li onClick={onClick}>
                 <NavLink
-
                     className={({ isActive }) => (isActive && `${styles.active}`)}
-                    to={'/recipes'}>
-                    Recipes
+                    to={'/recipes/popular'}>
+                    Popular
                 </NavLink>
             </li>
             <li onClick={onClick}>
                 <a
                     href={'https://www.linkedin.com/in/romangoduhin/'}
-                    target="_blank">
+                    target="_blank" rel="noreferrer">
                     LinkedIn
                 </a>
             </li>
             <li onClick={onClick}>
                 <a
-                    href={'https://github.com/romangoduhin'} target="_blank">
+                    href={'https://github.com/romangoduhin'} target="_blank" rel="noreferrer">
                     GitHub
                 </a>
             </li>

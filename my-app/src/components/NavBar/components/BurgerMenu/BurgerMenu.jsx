@@ -20,7 +20,7 @@ function BurgerMenu({isOpen, handleSwitch}) {
             <IconButton src={'/burgerIcon.svg'} width={25} height={25} onClick={handleSwitch}/>
         </div>
 
-        <div className={isOpen ? `${styles.burgerMenu} ${styles.opened}` : styles.burgerMenu}>
+        <div className={isOpen ? `${styles.burgerMenu} ${styles.opened}` : `${styles.burgerMenu}`}>
             <IconButton src={'/closeIcon.svg'} width={25} height={25} onClick={handleSwitch}/>
 
             <RandomButton handleSwitchModal={handleSwitchModal}/>
