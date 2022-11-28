@@ -8,7 +8,6 @@ function RandomButton({handleSwitchModal}) {
         <div className={styles.wrapper}>
             <div className={styles.randomButton} onClick={handleSwitchModal}>
                 <img src="/questionIcon.png" alt="icon"/>
-
             </div>
 
             <br/>
@@ -20,7 +19,8 @@ function RandomButton({handleSwitchModal}) {
 
 
 RandomButton.defaultProps = {
-    handleSwitchModal: () => {},
+    handleSwitchModal: () => {
+    },
 }
 
 RandomButton.propTypes = {

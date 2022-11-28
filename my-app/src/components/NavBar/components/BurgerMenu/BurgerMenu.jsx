@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from "./BurgerMenu.module.scss";
 import PropTypes from "prop-types";
-import IconButton from "../IconButton/IconButton";
+import IconButton from "../../../IconButton/IconButton";
 import RandomButton from "./components/RandomButton/RandomButton";
 import MenuList from "./components/MenuList/MenuList";
 import RandomRecipeModal from "./components/RandomRecipeModal/RandomRecipeModal";
