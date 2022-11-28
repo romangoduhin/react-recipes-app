@@ -2,7 +2,7 @@ import {
     CLEAR_SEARCHED_RECIPES,
     SET_RANDOM_RECIPES,
     SET_POPULAR_RECIPES,
-    SET_SEARCHED_RECIPES
+    SET_SEARCHED_RECIPES, CLEAR_RANDOM_RECIPES, CLEAR_POPULAR_RECIPES
 } from "../actions/recipesActions";
 
 const initialState = {
@@ -19,10 +19,20 @@ const recipesReducer = (state = initialState, action) => {
                 ...state,
                 randomRecipes: [...action.recipes]
             }
+        case CLEAR_RANDOM_RECIPES:
+            return {
+                ...state,
+                randomRecipes: null
+            }
         case SET_POPULAR_RECIPES:
             return {
                 ...state,
                 popularRecipes: [...action.recipes]
+            }
+        case CLEAR_POPULAR_RECIPES:
+            return {
+                ...state,
+                popularRecipes: null
             }
         case SET_SEARCHED_RECIPES:
             return {

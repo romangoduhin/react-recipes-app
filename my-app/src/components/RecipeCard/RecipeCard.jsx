@@ -17,20 +17,20 @@ function RecipeCard({recipe}) {
                     </div>
 
                     <div className={styles.info}>
-                        <div>
+                        {recipe.vegan && <div>
                             <span>Vegan</span>
                             <b>{recipe.vegan ? "Yes" : "No"}</b>
-                        </div>
+                        </div>}
 
-                        <div>
+                        {recipe.aggregateLikes && <div>
                             <span>Likes</span>
                             <b>{recipe.aggregateLikes}</b>
-                        </div>
+                        </div>}
 
-                        <div>
+                        {recipe.readyInMinutes && <div>
                             <span>Cooking time</span>
                             <b>{recipe.readyInMinutes}m</b>
-                        </div>
+                        </div>}
                     </div>
                 </div>
             </div>

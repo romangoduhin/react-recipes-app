@@ -19,7 +19,7 @@ function SecondNavBar() {
     function handleSearch(e) {
         if (value) {
             e.preventDefault()
-            navigate(`/recipes/${value}`)
+            navigate(`/recipes/search/${value}`)
         }
     }
 

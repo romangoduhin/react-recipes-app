@@ -17,8 +17,8 @@ function MenuList({onClick}) {
             <li onClick={onClick}>
                 <NavLink
                     className={({ isActive }) => (isActive && `${styles.active}`)}
-                    to={'/recipes'}>
-                    Recipes
+                    to={'/recipes/popular'}>
+                    Popular
                 </NavLink>
             </li>
             <li onClick={onClick}>
