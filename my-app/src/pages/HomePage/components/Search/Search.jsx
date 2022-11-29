@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./Search.module.scss";
 import Modal from "../../../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
@@ -30,6 +30,13 @@ function Search() {
             navigate(`/recipes/search/${value}`)
         }
     }
+
+    useEffect(() => {
+        return () => {
+            handleSwitch()
+        };
+    }, []);
+
 
     return <>
         <div style={{backgroundImage: `url(/searchBgImg.jpg)`}} className={styles.search}>
