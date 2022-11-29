@@ -51,8 +51,10 @@
       }
 
       b {
+        width: 100%;
         padding-left: 2px;
         font-size: 18px;
+        @include cutToEllipsis();
       }
     }
 

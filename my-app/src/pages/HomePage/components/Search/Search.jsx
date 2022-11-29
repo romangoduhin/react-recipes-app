@@ -36,7 +36,7 @@ function Search() {
             </div>
         </div>
 
-        {isSearchOpen && <Modal backgroundColor={'rgba(255,255,255, 0.8)'}>
+        {isSearchOpen && <Modal backgroundColor={'rgba(255,255,255, 0.7)'}>
             <div className={styles.header}>
                 <IconButton src={'/closeIcon.svg'} width={25} height={25} onClick={handleSwitch}/>
             </div>
