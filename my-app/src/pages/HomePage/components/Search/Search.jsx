@@ -4,11 +4,13 @@ import Modal from "../../../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import {setIsSearchOpen} from "../../../../redux/actions/appActions";
 import IconButton from "../../../../components/IconButton/IconButton";
-import {setSearchedRecipesThunk} from "../../../../redux/thunks/recipesThunks";
+import {useNavigate} from "react-router-dom";
 
 
 function Search() {
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const {isSearchOpen} = useSelector((state) => state.app);
 
@@ -23,8 +25,10 @@ function Search() {
     }
 
     function handleSearch(e) {
-        e.preventDefault();
-        dispatch(setSearchedRecipesThunk(value))
+        if (value) {
+            e.preventDefault()
+            navigate(`/recipes/search/${value}`)
+        }
     }
 
     return <>
