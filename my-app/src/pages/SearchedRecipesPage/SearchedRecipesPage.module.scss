@@ -3,12 +3,20 @@
 
 
 .wrapper {
-  padding-top: 40px;
   width: 100%;
   min-height: 92vh;
   height: 100%;
   @include flexCenter(column);
   background-color: $lightBlack;
+
+  .header {
+    width: 70%;
+    height: 8vh;
+    @include flexCenter(row);
+    justify-content: flex-start;
+    font-size: 20px;
+    color: $lightGray;
+  }
 
   .notFound {
     font-size: 40px;

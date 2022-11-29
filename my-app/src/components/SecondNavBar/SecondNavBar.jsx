@@ -10,7 +10,7 @@ function SecondNavBar() {
 
     const {searchedValue} = useSelector((state) => state.recipes);
 
-    const [value, setValue] = useState(searchedValue ? searchedValue : null);
+    const [value, setValue] = useState(searchedValue ? searchedValue : '');
 
     function handleChange(event) {
         setValue(event.target.value);
@@ -31,7 +31,7 @@ function SecondNavBar() {
 
     useEffect(() => {
         return () => {
-            setValue(null)
+            setValue('')
         };
     }, []);
 

@@ -25,9 +25,9 @@ const spoonacularAPI = {
             console.log(err);
         }
     },
-    getRecipeBySearch: async (query) => {
+    getRecipeBySearch: async (query, count) => {
         try {
-            const response = await recipesInstance.get(`complexSearch?query=${query}&apiKey=${apiKey}`)
+            const response = await recipesInstance.get(`complexSearch?query=${query}&apiKey=${apiKey}&number=${count}`)
             return response.data
         } catch (err) {
             console.log(err)

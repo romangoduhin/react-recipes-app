@@ -1,14 +1,16 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./Search.module.scss";
 import Modal from "../../../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
 import {setIsSearchOpen} from "../../../../redux/actions/appActions";
 import IconButton from "../../../../components/IconButton/IconButton";
-import {setSearchedRecipesThunk} from "../../../../redux/thunks/recipesThunks";
+import {useNavigate} from "react-router-dom";
 
 
 function Search() {
     const dispatch = useDispatch();
+
+    const navigate = useNavigate();
 
     const {isSearchOpen} = useSelector((state) => state.app);
 
@@ -23,9 +25,18 @@ function Search() {
     }
 
     function handleSearch(e) {
-        e.preventDefault();
-        dispatch(setSearchedRecipesThunk(value))
+        if (value) {
+            e.preventDefault()
+            navigate(`/recipes/search/${value}`)
+        }
     }
+
+    useEffect(() => {
+        return () => {
+            handleSwitch()
+        };
+    }, []);
+
 
     return <>
         <div style={{backgroundImage: `url(/searchBgImg.jpg)`}} className={styles.search}>
@@ -36,7 +47,7 @@ function Search() {
             </div>
         </div>
 
-        {isSearchOpen && <Modal backgroundColor={'rgba(255,255,255, 0.8)'}>
+        {isSearchOpen && <Modal backgroundColor={'rgba(255,255,255, 0.7)'}>
             <div className={styles.header}>
                 <IconButton src={'/closeIcon.svg'} width={25} height={25} onClick={handleSwitch}/>
             </div>

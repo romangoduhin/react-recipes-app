@@ -24,6 +24,7 @@
 }
 
 .header {
+  margin-top: 10vh;
   width: 50%;
   height: 30px;
   @include flexCenter(row);
@@ -47,8 +48,8 @@
     width: 90%;
     height: 100%;
     font-size: 45px;
-    border: none !important;
-    outline: none !important;
+    border: none;
+    outline: none;
     background-color: inherit;
   }
 }

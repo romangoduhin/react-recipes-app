@@ -9,14 +9,14 @@ function MenuList({onClick}) {
         <ul>
             <li onClick={onClick}>
                 <NavLink
-                    className={({ isActive }) => (isActive && `${styles.active}`)}
+                    className={({ isActive }) => (isActive ? `${styles.active}` : undefined)}
                     to={'/'}>
                     Home
                 </NavLink>
             </li>
             <li onClick={onClick}>
                 <NavLink
-                    className={({ isActive }) => (isActive && `${styles.active}`)}
+                    className={({ isActive }) => (isActive ? `${styles.active}` : undefined)}
                     to={'/recipes/popular'}>
                     Popular
                 </NavLink>
