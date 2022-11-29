@@ -46,7 +46,10 @@ function SearchedRecipesPage() {
         {isLoading
             ? <Loading/>
             : searchedRecipes && searchedRecipes.length !== 0
-                ? <RecipesGrid recipes={searchedRecipes} />
+                ? <>
+                    <p className={styles.header}>{searchedRecipes.length} matching results for "{searchedValue}"</p>
+                    <RecipesGrid recipes={searchedRecipes}/>
+                </>
                 : <p className={styles.notFound}>Uh oh. We didn't find the search term "{searchedValue}" that you were
                     looking for.
                 </p>
