@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {setSearchedRecipesThunk} from "../../redux/thunks/recipesThunks";
 import Loading from "../../components/Loading/Loading";
-import styles from "./SearchedRecipesPage.module.scss";
+import styles from "./SearchedRecipes.module.scss";
 import {useParams} from "react-router-dom";
 import {clearSearchedRecipesAction} from "../../redux/actions/recipesActions";
 import RecipesGrid from "../../components/RecipesGrid/RecipesGrid";
 
 
-function SearchedRecipesPage() {
+function SearchedRecipes() {
     const dispatch = useDispatch();
     const {recipeName} = useParams();
 
@@ -57,4 +57,4 @@ function SearchedRecipesPage() {
     </div>
 }
 
-export default SearchedRecipesPage;
+export default SearchedRecipes;

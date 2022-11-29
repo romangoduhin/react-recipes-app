@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styles from "./PopularRecipesPage.module.scss";
+import styles from "./PopularRecipes.module.scss";
 import Loading from "../../components/Loading/Loading";
 import RecipesGrid from "../../components/RecipesGrid/RecipesGrid";
 import {useDispatch, useSelector} from "react-redux";
@@ -8,7 +8,7 @@ import {clearPopularRecipesAction} from "../../redux/actions/recipesActions";
 import Pagination from "../../components/Pagination/Pagination";
 
 
-function PopularRecipesPage() {
+function PopularRecipes() {
     const pageSize = 12;
 
     const dispatch = useDispatch()
@@ -69,4 +69,4 @@ function PopularRecipesPage() {
     </div>
 }
 
-export default PopularRecipesPage;
+export default PopularRecipes;

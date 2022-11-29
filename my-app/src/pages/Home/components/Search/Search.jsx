@@ -22,6 +22,7 @@ function Search() {
 
     async function handleSwitch() {
         dispatch(setIsSearchOpen(!isSearchOpen))
+        setValue('')
     }
 
     function handleSearch(e) {
@@ -55,7 +56,7 @@ function Search() {
             <br/>
             <br/>
 
-            <form className={styles.inputWrapper} onSubmit={handleSearch}>
+            <form className={styles.inputWrapper} onSubmit={handleSearch} autofocus>
                 <div className={styles.imgWrapper}>
                     <IconButton src={'/searchIcon.svg'} width={50} height={50} onClick={handleSearch}/>
                 </div>
@@ -64,6 +65,7 @@ function Search() {
                        onChange={handleChange}
                        className={styles.input}
                        placeholder={'Find a Recipe'}
+                       autoFocus={true}
                 />
             </form>
         </Modal>}

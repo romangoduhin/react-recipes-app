@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './HomePage.module.scss';
+import styles from './Home.module.scss';
 import Search from "./components/Search/Search";
 
 
-function HomePage() {
+function Home() {
     return <div className={styles.wrapper}>
         <Search/>
     </div>
 }
 
-export default HomePage;
+export default Home;

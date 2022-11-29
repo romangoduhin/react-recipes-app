@@ -1,12 +1,12 @@
 import './App.scss';
 import NavBar from "./components/NavBar/NavBar";
-import HomePage from "./pages/HomePage/HomePage";
+import Home from "./pages/Home/Home";
 import {Route, Routes, useLocation} from "react-router-dom";
-import RecipePage from "./pages/RecipePage/RecipePage";
-import SearchedRecipesPage from "./pages/SearchedRecipesPage/SearchedRecipesPage";
+import CurrentRecipe from "./pages/CurrentRecipe/CurrentRecipe";
+import SearchedRecipes from "./pages/SearchedRecipes/SearchedRecipes";
 import {useEffect, useState} from "react";
 import SecondNavBar from "./components/SecondNavBar/SecondNavBar";
-import PopularRecipesPage from "./pages/PopularRecipesPage/PopularRecipesPage";
+import PopularRecipes from "./pages/PopularRecipes/PopularRecipes";
 
 
 function App() {
@@ -26,10 +26,10 @@ function App() {
         <div className="App">
             {isSwitched ? <SecondNavBar/> : <NavBar/>}
             <Routes>
-                <Route path="/" element={<HomePage/>}/>
-                <Route path="/recipes/popular" element={<PopularRecipesPage/>}/>
-                <Route path="/recipes/search/:recipeName" element={<SearchedRecipesPage/>}/>
-                <Route path="/recipe/:id" element={<RecipePage/>}/>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/recipes/popular" element={<PopularRecipes/>}/>
+                <Route path="/recipes/search/:recipeName" element={<SearchedRecipes/>}/>
+                <Route path="/recipe/:id" element={<CurrentRecipe/>}/>
             </Routes>
         </div>
     );

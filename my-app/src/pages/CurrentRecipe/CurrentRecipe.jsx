@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import spoonacularAPI from "../../services/spoonacularApi/api";
 import Loading from "../../components/Loading/Loading";
-import styles from "./RecipePage.module.scss";
+import styles from "./CurrentRecipe.module.scss";
 import DifficultyIndicator from "./components/DifficultyIndicator/DifficultyIndicator";
 import Ingredients from "./components/Ingredients/Ingredients";
 import Categories from "./components/Categories/Categories";
@@ -13,7 +13,7 @@ import InfoPanel from "./components/InfoPanel/InfoPanel";
 import Image from "./components/Image/Image";
 
 
-function RecipePage() {
+function CurrentRecipe() {
     const {id} = useParams();
 
     const [currentRecipe, setCurrentRecipe] = useState(null);
@@ -76,4 +76,4 @@ function RecipePage() {
         : <Loading/>
 }
 
-export default RecipePage;
+export default CurrentRecipe;
