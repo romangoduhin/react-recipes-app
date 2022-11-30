@@ -4,10 +4,10 @@
 
 .wrapper {
   width: 100%;
-  min-height: 90vh;
+  min-height: 92vh;
   height: auto;
   @include flexCenter(column);
-  align-items: flex-start;
+  align-items: center;
   background-color: $white;
 }
 

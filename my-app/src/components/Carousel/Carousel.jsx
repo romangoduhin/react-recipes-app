@@ -1,8 +1,9 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styles from "./Carousel.module.scss";
-import RecipeCard from "../RecipeCard/RecipeCard";
 import PropTypes from "prop-types";
 import Loading from "../Loading/Loading";
+import Slide from "./components/Slide/Slide";
+import IconButton from "../IconButton/IconButton";
 
 
 function Carousel({slidersCount, recipes}) {
@@ -11,20 +12,20 @@ function Carousel({slidersCount, recipes}) {
 
     const visibleWindowRef = useRef();
 
-    function handleArrowCLick(direction) {
-        if (direction === "left") {
-            const newOffset = offset + slideWidth;
-            setOffset(Math.min(newOffset, 0));
-        } else if (direction === 'right') {
-            const newOffset = offset - slideWidth;
-            const maxOffset = -(slideWidth * (slidersCount - 1));
-            setOffset(Math.max(maxOffset, newOffset))
-        }
+    function handleSwipeLeft() {
+        const newOffset = offset + slideWidth;
+        setOffset(Math.min(newOffset, 0));
+    }
+
+    function handleSwipeRight() {
+        const newOffset = offset - slideWidth;
+        const maxOffset = -(slideWidth * (slidersCount - 1));
+        setOffset(Math.max(maxOffset, newOffset))
     }
 
     function getSlides(recipes) {
         if (recipes) {
-            return recipes.map(el => <RecipeCard key={el.id} recipe={el}/>)
+            return recipes.map(el => <Slide key={el.id} data={el}/>)
         }
     }
 
@@ -43,24 +44,16 @@ function Carousel({slidersCount, recipes}) {
                 window.removeEventListener('resize', resizeHandler)
             }
         }
-    }, [])
+    }, [recipes])
 
     return recipes ? <div className={styles.carousel}>
-            <div className={styles.carouselHeader}>
-                <div className={styles.title}>
-                    <h1>Popular recipes this week</h1>
-
-                    <p>Here are the top recipes customers are cooking this week</p>
+            <div className={styles.buttons}>
+                <div>
+                    <IconButton src={'/arrowLeft.png'} width={30} height={30} onClick={handleSwipeLeft}/>
                 </div>
 
-                <div className={styles.buttons}>
-                    <div className={styles.buttonLeft} onClick={() => handleArrowCLick("left")}>
-                        <img src={'/arrow.png'} alt='icon'/>
-                    </div>
-
-                    <div className={styles.buttonRight} onClick={() => handleArrowCLick("right")}>
-                        <img src={'/arrow.png'} alt='icon'/>
-                    </div>
+                <div>
+                    <IconButton src={'/arrowRight.png'} width={30} height={30} onClick={handleSwipeRight}/>
                 </div>
             </div>
 
@@ -73,7 +66,7 @@ function Carousel({slidersCount, recipes}) {
                 </div>
             </div>
         </div>
-        : <Loading/>
+        : <Loading color={'#ffff'}/>
 }
 
 Carousel.defaultProps = {

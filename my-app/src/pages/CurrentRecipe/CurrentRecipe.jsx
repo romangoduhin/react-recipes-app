@@ -68,7 +68,8 @@ function CurrentRecipe() {
 
                         <br/>
 
-                        <Method instructions={currentRecipe.analyzedInstructions[0].steps}/>
+                        {currentRecipe.analyzedInstructions[0] &&
+                            <Method instructions={currentRecipe.analyzedInstructions[0].steps}/>}
                     </div>
                 </div>
             </div>

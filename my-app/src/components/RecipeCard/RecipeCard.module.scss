@@ -39,9 +39,9 @@
       align-items: flex-start;
       font-size: 16px;
       font-weight: 600;
-      @include cutToEllipsis();
 
       p {
+        width: 100%;
         text-transform: uppercase;
         @include cutToEllipsis();
 

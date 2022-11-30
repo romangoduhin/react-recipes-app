@@ -16,6 +16,8 @@ function Search() {
 
     const [value, setValue] = useState('');
 
+    console.log(isSearchOpen)
+
     function handleChange(event) {
         setValue(event.target.value)
     }
@@ -34,13 +36,14 @@ function Search() {
 
     useEffect(() => {
         return () => {
-            handleSwitch()
+            dispatch(setIsSearchOpen(false))
+            setValue('')
         };
     }, []);
 
 
     return <>
-        <div style={{backgroundImage: `url(/searchBgImg.jpg)`}} className={styles.search}>
+        <div className={styles.search}>
             <h1>Find a Recipe</h1>
             <br/>
             <div className={styles.inputButton} onClick={handleSwitch}>
