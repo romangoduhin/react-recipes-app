@@ -38,7 +38,7 @@ function RandomRecipeModal({handleSwitchModal}) {
             <div className={styles.circle}>
                 {randomRecipe
                     ? <div className={styles.result}>
-                        <NavLink className={styles.logo} to={'/'}>simply</NavLink>
+                        <NavLink className={styles.logo} to={'/'}>react recipes</NavLink>
                         <h1>{getCuttedText(randomRecipe.title)}</h1>
                         <NavLink to={`/recipe/${randomRecipe.id}`} onClick={handleSwitchModal}>
                             <div className={styles.button}>

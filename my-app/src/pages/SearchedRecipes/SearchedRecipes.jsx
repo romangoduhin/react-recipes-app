@@ -10,23 +10,25 @@ import RecipesGrid from "../../components/RecipesGrid/RecipesGrid";
 
 function SearchedRecipes() {
     const dispatch = useDispatch();
-    const {recipeName} = useParams();
+    const {query} = useParams()
 
     const [isLoading, setIsLoading] = useState(false);
 
     const {searchedRecipes} = useSelector((state) => state.recipes);
     const {searchedValue} = useSelector((state) => state.recipes);
+    const {searchType} = useSelector((state) => state.app);
 
     function clearSearchedState() {
         dispatch(clearSearchedRecipesAction());
     }
 
     useEffect(() => {
-        if (recipeName) {
+        if (query) {
             setIsLoading(true)
-            dispatch(setSearchedRecipesThunk(recipeName))
+
+            dispatch(setSearchedRecipesThunk(searchType, query))
         }
-    }, [recipeName]);
+    }, [query]);
 
     useEffect(() => {
         if (searchedRecipes) {

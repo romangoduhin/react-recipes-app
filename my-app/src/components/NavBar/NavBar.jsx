@@ -27,7 +27,7 @@ function NavBar() {
 
             <div className={styles.logoBlock}>
                    <span className={styles.logoText}>
-                     <NavLink to='/'>simply recipes</NavLink>
+                     <NavLink to='/'>react recipes</NavLink>
                    </span>
             </div>
 

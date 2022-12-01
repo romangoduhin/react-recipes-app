@@ -6,9 +6,21 @@
   width: 100%;
   min-height: 92vh;
   height: auto;
-  @include flexCenter(column);
+  @include flexCenter(row);
+  justify-content: flex-start;
   align-items: center;
   background-color: $white;
+
+  .carousels {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    width: 40%;
+    height: 92vh;
+    @include flexCenter(column);
+    justify-content: flex-start;
+    row-gap: 20px;
+    overflow: auto;
+  }
 }
 
 

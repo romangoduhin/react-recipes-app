@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 function RecipeCard({recipe}) {
     return <NavLink to={`/recipe/${recipe.id}`}>
         <div className={styles.recipeCard} key={recipe.id}>
-            <img src={recipe.image ? recipe.image : "/logoBig.png"} alt="recipe image"/>
+            <img src={recipe.image ? recipe.image : "/logoSmall.png"} alt="recipe image"/>
 
             <div className={styles.content}>
                 <div className={styles.title}>
