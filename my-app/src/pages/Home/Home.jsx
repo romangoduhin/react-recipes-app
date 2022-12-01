@@ -13,7 +13,7 @@ function Home() {
     const {popularRecipes} = useSelector((state) => state.recipes);
 
     useEffect(() => {
-        dispatch(setPopularRecipesThunk(25))
+        dispatch(setPopularRecipesThunk(3))
 
         return () => {
             dispatch(clearPopularRecipesAction())
