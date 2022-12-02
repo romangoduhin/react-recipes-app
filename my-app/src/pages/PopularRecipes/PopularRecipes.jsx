@@ -20,7 +20,7 @@ function PopularRecipes() {
     const [totalCount, setTotalCount] = useState(null);
 
 
-    function getCurrenPageRecipes() {
+    function getCurrentPageRecipes() {
         return recipes[currentPage - 1];
     }
 
@@ -54,7 +54,7 @@ function PopularRecipes() {
         {!recipes
             ? <Loading/>
             : <>
-                <RecipesGrid recipes={getCurrenPageRecipes()}/>
+                <RecipesGrid recipes={getCurrentPageRecipes()}/>
                 <Pagination pageSize={pageSize}
                             totalCount={totalCount}
                             currentPage={currentPage}

@@ -20,14 +20,9 @@ function SearchedRecipes() {
     const {searchType} = useSelector((state) => state.app);
 
     function formatValue(value) {
-        if (searchType === 'ingredients' && value) {
-            value = formatToNormal(value)
+        if (value) {
+            return formatToNormal(value)
         }
-        return value
-    }
-
-    function clearSearchedState() {
-        dispatch(clearSearchedRecipesAction());
     }
 
     useEffect(() => {
@@ -46,7 +41,7 @@ function SearchedRecipes() {
 
     useEffect(() => {
         return () => {
-            clearSearchedState()
+            dispatch(clearSearchedRecipesAction());
         };
     }, []);
 
@@ -56,10 +51,13 @@ function SearchedRecipes() {
             ? <Loading/>
             : searchedRecipes && searchedRecipes.length !== 0
                 ? <>
-                    <p className={styles.header}>{searchedRecipes.length} matching results for "{formatValue(searchedValue)}"</p>
+                    <p className={styles.header}>{searchedRecipes.length} matching results for
+                        "{formatValue(searchedValue)}"</p>
                     <RecipesGrid recipes={searchedRecipes}/>
                 </>
-                : <p className={styles.notFound}>Uh oh. We didn't find the search term "{formatValue(searchedValue)}" that you were
+                :
+                <p className={styles.notFound}>Uh oh. We didn't find the search term "{formatValue(searchedValue)}" that
+                    you were
                     looking for.
                 </p>
         }

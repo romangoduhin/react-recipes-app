@@ -32,49 +32,4 @@
       }
     }
   }
-
-  .inputWrapper {
-    position: relative;
-    width: 65%;
-    height: 8vh;
-    @include flexCenter(row);
-    justify-content: flex-start;
-
-    .searchIcon {
-      margin-left: 5px;
-      position: absolute;
-      top: 30%;
-      left: 0;
-    }
-
-    input {
-      padding-left: 40px;
-      width: 95%;
-      height: 70%;
-      font-size: 25px;
-      border: none !important;
-      outline: none !important;
-    }
-  }
-
-  .searchSwitcher {
-    width: 15%;
-    height: 5vh;
-    @include flexCenter(row);
-    justify-content: flex-start;
-    column-gap: 20px;
-    font-size: 15px;
-    text-transform: uppercase;
-    cursor: pointer;
-
-   p {
-     color: $white;
-   }
-
-
-    .active {
-      text-decoration: underline;
-      pointer-events: none;
-    }
-  }
 }

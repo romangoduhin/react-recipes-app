@@ -1,0 +1,23 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.typeSwitcher {
+  width: 15%;
+  height: 5vh;
+  @include flexCenter(row);
+  justify-content: flex-start;
+  column-gap: 20px;
+  font-size: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  p {
+    color: $white;
+  }
+
+  .active {
+    text-decoration: underline;
+    pointer-events: none;
+  }
+}
