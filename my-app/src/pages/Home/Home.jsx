@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setPopularRecipesThunk} from "../../redux/thunks/recipesThunks";
 import {clearPopularRecipesAction} from "../../redux/actions/recipesActions";
 import {arrayDivisor} from "../../assets/arrayDivisor";
+import Loading from "../../components/Loading/Loading";
 
 
 function Home() {
@@ -19,7 +20,10 @@ function Home() {
 
     function getCarousels() {
         return <div className={styles.carousels}>
-            {recipes.map((el, ind) => <Carousel key={ind} recipes={el} slidersCount={slidersCount}/>)}
+            {recipes
+                ? recipes.map((el, ind) => <Carousel key={ind} recipes={el} slidersCount={slidersCount}/>)
+                : <Loading width={'100%'} height={'100%'}/>
+            }
         </div>
     }
 

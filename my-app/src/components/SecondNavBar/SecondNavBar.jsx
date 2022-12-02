@@ -4,7 +4,7 @@ import {NavLink, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import IconButton from "../IconButton/IconButton";
 import {formatToNormal, formatToQuery} from "../../assets/formaters";
-import {setSearchTypeAction} from "../../redux/actions/appActions";
+import {setSearchTypeThunk} from "../../redux/thunks/appThunks";
 
 
 function SecondNavBar() {
@@ -37,7 +37,7 @@ function SecondNavBar() {
         } else if (type === 'ingredients') {
             setPlaceholder('Example: rice salt cheese')
         }
-        dispatch(setSearchTypeAction(type))
+        dispatch(setSearchTypeThunk(type))
     }
 
     useEffect(() => {
@@ -59,7 +59,6 @@ function SecondNavBar() {
             setValue('')
         };
     }, []);
-
 
     return <div className={styles.navBar}>
         <div className={styles.logoBlock}>

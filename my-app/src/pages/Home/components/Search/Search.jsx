@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 import styles from "./Search.module.scss";
 import Modal from "../../../../components/Modal/Modal";
 import {useDispatch, useSelector} from "react-redux";
-import {setIsSearchOpen, setSearchTypeAction} from "../../../../redux/actions/appActions";
+import {setIsSearchOpen} from "../../../../redux/actions/appActions";
 import IconButton from "../../../../components/IconButton/IconButton";
 import {useNavigate} from "react-router-dom";
 import {formatToQuery} from "../../../../assets/formaters";
+import {setSearchTypeThunk} from "../../../../redux/thunks/appThunks";
 
 
 function Search() {
@@ -43,10 +44,12 @@ function Search() {
         } else if (type === 'ingredients') {
             setPlaceholder('Example: rice salt cheese')
         }
-        dispatch(setSearchTypeAction(type))
+        dispatch(setSearchTypeThunk(type))
     }
 
     useEffect(() => {
+        dispatch(setSearchTypeThunk(searchType))
+
         return () => {
             dispatch(setIsSearchOpen(false))
             setValue('')

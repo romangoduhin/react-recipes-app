@@ -12,6 +12,5 @@ export const setSearchTypeAction = (searchType) => {
     return {
         type: 'SET_SEARCH_TYPE',
         searchType: searchType
-
     }
 }

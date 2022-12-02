@@ -6,6 +6,7 @@ import styles from "./SearchedRecipes.module.scss";
 import {useParams} from "react-router-dom";
 import {clearSearchedRecipesAction} from "../../redux/actions/recipesActions";
 import RecipesGrid from "../../components/RecipesGrid/RecipesGrid";
+import {formatToNormal} from "../../assets/formaters";
 
 
 function SearchedRecipes() {
@@ -18,6 +19,13 @@ function SearchedRecipes() {
     const {searchedValue} = useSelector((state) => state.recipes);
     const {searchType} = useSelector((state) => state.app);
 
+    function formatValue(value) {
+        if (searchType === 'ingredients' && value) {
+            value = formatToNormal(value)
+        }
+        return value
+    }
+
     function clearSearchedState() {
         dispatch(clearSearchedRecipesAction());
     }
@@ -25,7 +33,6 @@ function SearchedRecipes() {
     useEffect(() => {
         if (query) {
             setIsLoading(true)
-
             dispatch(setSearchedRecipesThunk(searchType, query))
         }
     }, [query]);
@@ -49,10 +56,10 @@ function SearchedRecipes() {
             ? <Loading/>
             : searchedRecipes && searchedRecipes.length !== 0
                 ? <>
-                    <p className={styles.header}>{searchedRecipes.length} matching results for "{searchedValue}"</p>
+                    <p className={styles.header}>{searchedRecipes.length} matching results for "{formatValue(searchedValue)}"</p>
                     <RecipesGrid recipes={searchedRecipes}/>
                 </>
-                : <p className={styles.notFound}>Uh oh. We didn't find the search term "{searchedValue}" that you were
+                : <p className={styles.notFound}>Uh oh. We didn't find the search term "{formatValue(searchedValue)}" that you were
                     looking for.
                 </p>
         }
