@@ -25,7 +25,12 @@ function Carousel({slidersCount, recipes}) {
 
     function getSlides(recipes) {
         if (recipes) {
-            return recipes.map(el => <Slide key={el.id} data={el}/>)
+            return <div className={styles.slidersContainer}
+                        style={{
+                            transform: `translateX(${offset}px)`
+                        }}>
+                {recipes.map(el => <Slide key={el.id} data={el}/>)}
+            </div>
         }
     }
 
@@ -58,15 +63,11 @@ function Carousel({slidersCount, recipes}) {
             </div>
 
             <div className={styles.visibleWindow} ref={visibleWindowRef}>
-                <div className={styles.slidersContainer}
-                     style={{
-                         transform: `translateX(${offset}px)`
-                     }}>
-                    {getSlides(recipes)}
-                </div>
+                {getSlides(recipes)}
             </div>
         </div>
-        : <Loading color={'#ffff'}/>
+        :
+        <Loading color={'#ffff'}/>
 }
 
 Carousel.defaultProps = {

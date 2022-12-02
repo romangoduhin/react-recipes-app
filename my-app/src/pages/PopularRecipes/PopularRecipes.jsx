@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setPopularRecipesThunk} from "../../redux/thunks/recipesThunks";
 import {clearPopularRecipesAction} from "../../redux/actions/recipesActions";
 import Pagination from "../../components/Pagination/Pagination";
+import {arrayDivisor} from "../../assets/arrayDivisor";
 
 
 function PopularRecipes() {
@@ -19,7 +20,7 @@ function PopularRecipes() {
     const [totalCount, setTotalCount] = useState(null);
 
 
-    function getCurrenPageRecipes() {
+    function getCurrentPageRecipes() {
         return recipes[currentPage - 1];
     }
 
@@ -31,18 +32,12 @@ function PopularRecipes() {
         window.scrollTo(0, 0)
     }, [currentPage]);
 
-
     useEffect(() => {
         if (popularRecipes) {
-            setTotalCount(popularRecipes.length)
+            let arr = arrayDivisor(popularRecipes, pageSize)
 
-            let newArray = [];
-            let array = popularRecipes
-            let subArraySize = pageSize;
-            for (let i = 0; i < Math.ceil(array.length / subArraySize); i++) {
-                newArray[i] = array.slice((i * subArraySize), (i * subArraySize) + subArraySize);
-            }
-            setRecipes(newArray);
+            setRecipes(arr);
+            setTotalCount(popularRecipes.length)
         }
     }, [popularRecipes]);
 
@@ -59,7 +54,7 @@ function PopularRecipes() {
         {!recipes
             ? <Loading/>
             : <>
-                <RecipesGrid recipes={getCurrenPageRecipes()}/>
+                <RecipesGrid recipes={getCurrentPageRecipes()}/>
                 <Pagination pageSize={pageSize}
                             totalCount={totalCount}
                             currentPage={currentPage}

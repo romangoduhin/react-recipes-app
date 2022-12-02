@@ -1,55 +1,25 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './SecondNavBar.module.scss';
-import {NavLink, useNavigate} from "react-router-dom";
+import {NavLink,} from "react-router-dom";
 import {useSelector} from "react-redux";
-import IconButton from "../IconButton/IconButton";
+import Input from "./components/Input/Input";
+import TypeSwitcher from "./components/TypeSwitcher/TypeSwitcher";
 
 
 function SecondNavBar() {
-    const navigate = useNavigate();
-
-    const {searchedValue} = useSelector((state) => state.recipes);
-
-    const [value, setValue] = useState(searchedValue ? searchedValue : '');
-
-    function handleChange(event) {
-        setValue(event.target.value);
-    }
-
-    function handleSearch(e) {
-        if (value) {
-            e.preventDefault()
-            navigate(`/recipes/search/${value}`)
-        }
-    }
-
-    useEffect(() => {
-        if (searchedValue) {
-            setValue(searchedValue);
-        }
-    }, [searchedValue])
-
-    useEffect(() => {
-        return () => {
-            setValue('')
-        };
-    }, []);
-
+    const {searchType} = useSelector((state) => state.app);
 
     return <div className={styles.navBar}>
-            <div className={styles.logoBlock}>
+        <div className={styles.logoBlock}>
                    <span className={styles.logoText}>
-                     <NavLink to='/'>simply recipes</NavLink>
+                     <NavLink to='/'>react recipes</NavLink>
                    </span>
-            </div>
-
-            <form className={styles.inputWrapper} onSubmit={handleSearch}>
-                <div className={styles.searchIcon}>
-                    <IconButton src={'/searchIcon.svg'} width={30} height={30} onClick={handleSearch}/>
-                </div>
-                <input value={value} onChange={handleChange} placeholder={'Find a Recipe'} type="text"/>
-            </form>
         </div>
+
+        <Input searchType={searchType}/>
+
+        <TypeSwitcher searchType={searchType}/>
+    </div>
 }
 
 export default SecondNavBar;

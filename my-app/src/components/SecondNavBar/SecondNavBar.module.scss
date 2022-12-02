@@ -32,28 +32,4 @@
       }
     }
   }
-
-  .inputWrapper {
-    position: relative;
-    width: 75%;
-    height: 8vh;
-    @include flexCenter(row);
-    justify-content: flex-start;
-
-    .searchIcon {
-      margin-left: 5px;
-      position: absolute;
-      top: 30%;
-      left: 0;
-    }
-
-    input {
-      padding-left: 40px;
-      width: 70%;
-      height: 70%;
-      font-size: 25px;
-      border: none !important;
-      outline: none !important;
-    }
-  }
 }

@@ -1,0 +1,26 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+.inputWrapper {
+  position: relative;
+  width: 65%;
+  height: 8vh;
+  @include flexCenter(row);
+  justify-content: flex-start;
+
+  .searchIcon {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    margin-left: 5px;
+  }
+
+  input {
+    padding-left: 40px;
+    width: 95%;
+    height: 70%;
+    font-size: 25px;
+    border: none !important;
+    outline: none !important;
+  }
+}

@@ -1,29 +1,19 @@
 import {
     CLEAR_SEARCHED_RECIPES,
-    SET_RANDOM_RECIPES,
     SET_POPULAR_RECIPES,
-    SET_SEARCHED_RECIPES, CLEAR_RANDOM_RECIPES, CLEAR_POPULAR_RECIPES
-} from "../actions/recipesActions";
+    SET_SEARCHED_RECIPES,
+    CLEAR_POPULAR_RECIPES,
+    } from "../actions/recipesActions";
 
 const initialState = {
-    randomRecipes: null,
     popularRecipes: null,
     searchedValue: null,
     searchedRecipes: null,
+    searchType: 'name',
 }
 
 const recipesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case SET_RANDOM_RECIPES:
-            return {
-                ...state,
-                randomRecipes: [...action.recipes]
-            }
-        case CLEAR_RANDOM_RECIPES:
-            return {
-                ...state,
-                randomRecipes: null
-            }
         case SET_POPULAR_RECIPES:
             return {
                 ...state,

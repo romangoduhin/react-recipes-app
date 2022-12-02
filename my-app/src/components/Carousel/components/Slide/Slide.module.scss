@@ -11,7 +11,7 @@
 
   .imageWrapper {
     position: relative;
-    width: 40%;
+    width: 55%;
     height: 100%;
 
     &:hover {
@@ -29,7 +29,7 @@
       visibility: hidden;
       position: absolute;
       top: 40%;
-      left: 30%;
+      left: 15%;
       width: 40%;
       height: 20%;
       font-weight: 600;
@@ -62,8 +62,8 @@
   .content {
     position: absolute;
     top: 15%;
-    left: 30%;
-    width: 70%;
+    left: 35%;
+    width: 65%;
     height: 70%;
     padding: 20px;
     background-color: $white;

@@ -6,27 +6,31 @@ import styles from "./SearchedRecipes.module.scss";
 import {useParams} from "react-router-dom";
 import {clearSearchedRecipesAction} from "../../redux/actions/recipesActions";
 import RecipesGrid from "../../components/RecipesGrid/RecipesGrid";
+import {formatToNormal} from "../../assets/formaters";
 
 
 function SearchedRecipes() {
     const dispatch = useDispatch();
-    const {recipeName} = useParams();
+    const {query} = useParams()
 
     const [isLoading, setIsLoading] = useState(false);
 
     const {searchedRecipes} = useSelector((state) => state.recipes);
     const {searchedValue} = useSelector((state) => state.recipes);
+    const {searchType} = useSelector((state) => state.app);
 
-    function clearSearchedState() {
-        dispatch(clearSearchedRecipesAction());
+    function formatValue(value) {
+        if (value) {
+            return formatToNormal(value)
+        }
     }
 
     useEffect(() => {
-        if (recipeName) {
+        if (query) {
             setIsLoading(true)
-            dispatch(setSearchedRecipesThunk(recipeName))
+            dispatch(setSearchedRecipesThunk(searchType, query))
         }
-    }, [recipeName]);
+    }, [query]);
 
     useEffect(() => {
         if (searchedRecipes) {
@@ -37,7 +41,7 @@ function SearchedRecipes() {
 
     useEffect(() => {
         return () => {
-            clearSearchedState()
+            dispatch(clearSearchedRecipesAction());
         };
     }, []);
 
@@ -47,10 +51,13 @@ function SearchedRecipes() {
             ? <Loading/>
             : searchedRecipes && searchedRecipes.length !== 0
                 ? <>
-                    <p className={styles.header}>{searchedRecipes.length} matching results for "{searchedValue}"</p>
+                    <p className={styles.header}>{searchedRecipes.length} matching results for
+                        "{formatValue(searchedValue)}"</p>
                     <RecipesGrid recipes={searchedRecipes}/>
                 </>
-                : <p className={styles.notFound}>Uh oh. We didn't find the search term "{searchedValue}" that you were
+                :
+                <p className={styles.notFound}>Uh oh. We didn't find the search term "{formatValue(searchedValue)}" that
+                    you were
                     looking for.
                 </p>
         }

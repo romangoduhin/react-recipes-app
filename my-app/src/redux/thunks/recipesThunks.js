@@ -1,15 +1,6 @@
 import spoonacularAPI from "../../services/spoonacularApi/api";
-import {setRandomRecipesAction, setSearchedRecipesAction, setPopularRecipesAction} from "../actions/recipesActions";
+import {setSearchedRecipesAction, setPopularRecipesAction} from "../actions/recipesActions";
 
-
-export const setRandomRecipesThunk = (count = 12) => {
-    return async function (dispatch) {
-        const recipes = await spoonacularAPI.getRandomRecipes(count);
-        if (recipes) {
-            dispatch(setRandomRecipesAction(recipes))
-        }
-    }
-}
 
 export const setPopularRecipesThunk = (count = 12) => {
     return async function (dispatch) {
@@ -22,12 +13,16 @@ export const setPopularRecipesThunk = (count = 12) => {
     }
 }
 
-export const setSearchedRecipesThunk = (value, count = 12) => {
+export const setSearchedRecipesThunk = (type, value, count = 12) => {
     return async function (dispatch) {
-        const recipes = await spoonacularAPI.getRecipeBySearch(value, count); //imitate popular recipes request
+        let recipes;
 
-        if (recipes) {
-            dispatch(setSearchedRecipesAction(value, recipes.results))
+        if (type === 'name') {
+            recipes = await spoonacularAPI.getRecipesByName(value, count);
+            recipes && dispatch(setSearchedRecipesAction(value, recipes.results))
+        } else if (type === 'ingredients') {
+            recipes = await spoonacularAPI.getRecipesByIngredients(value, count);
+            recipes && dispatch(setSearchedRecipesAction(value, recipes))
         }
     }
 }

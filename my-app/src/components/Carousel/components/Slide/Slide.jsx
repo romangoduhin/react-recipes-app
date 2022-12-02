@@ -11,7 +11,7 @@ function Slide({data}) {
 
     return <div className={styles.slide}>
         <div className={styles.imageWrapper}>
-            <img src={data.image ? data.image : "/logoBig.png"} alt="recipe image"/>
+            <img src={data.image ? data.image : "/logoSmall.png"} alt="recipe image"/>
             <div className={styles.border}></div>
 
             <NavLink to={`/recipe/${data.id}`} className={styles.openButton}>
@@ -24,7 +24,7 @@ function Slide({data}) {
                 <p><span>RECIPE</span> {data.sourceName && <>| FROM {data.sourceName}</>}</p>
 
                 <NavLink to={`/recipe/${data.id}`}>
-                   {data.title}
+                    {data.title}
                 </NavLink>
             </div>
 
