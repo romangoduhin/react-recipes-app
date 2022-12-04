@@ -1,5 +1,5 @@
 import spoonacularAPI from "../../services/spoonacularApi/api";
-import {setSearchedRecipesAction, setPopularRecipesAction} from "../actions/recipesActions";
+import {setSearchedRecipesAction, setPopularRecipesAction, setRandomRecipesAction} from "../actions/recipesActions";
 
 
 export const setPopularRecipesThunk = (count = 12) => {
@@ -9,6 +9,16 @@ export const setPopularRecipesThunk = (count = 12) => {
         if (recipes) {
             let sortedByLikesRecipes = recipes.sort((a, b) => b.aggregateLikes - a.aggregateLikes)
             dispatch(setPopularRecipesAction(sortedByLikesRecipes))
+        }
+    }
+}
+
+export const setRandomRecipesThunk = (count = 12) => {
+    return async function (dispatch) {
+        const recipes = await spoonacularAPI.getRandomRecipes(count);
+
+        if (recipes) {
+            dispatch(setRandomRecipesAction(recipes))
         }
     }
 }
