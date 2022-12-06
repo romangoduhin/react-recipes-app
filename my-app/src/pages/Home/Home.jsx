@@ -3,8 +3,8 @@ import styles from './Home.module.scss';
 import Search from "./components/Search/Search";
 import Carousel from "../../components/Carousel/Carousel";
 import {useDispatch, useSelector} from "react-redux";
-import {setPopularRecipesThunk} from "../../redux/thunks/recipesThunks";
-import {clearPopularRecipesAction} from "../../redux/actions/recipesActions";
+import {setRandomRecipesThunk} from "../../redux/thunks/recipesThunks";
+import {clearRandomRecipesAction} from "../../redux/actions/recipesActions";
 import {arrayDivisor} from "../../assets/arrayDivisor";
 import Loading from "../../components/Loading/Loading";
 
@@ -14,7 +14,7 @@ function Home() {
 
     const dispatch = useDispatch();
 
-    const {popularRecipes} = useSelector((state) => state.recipes);
+    const {randomRecipes} = useSelector((state) => state.recipes);
 
     const [recipes, setRecipes] = useState(null);
 
@@ -28,24 +28,24 @@ function Home() {
     }
 
     useEffect(() => {
-        if (popularRecipes) {
-            let arr = arrayDivisor(popularRecipes, slidersCount);
+        if (randomRecipes) {
+            let arr = arrayDivisor(randomRecipes, slidersCount);
             setRecipes(arr);
         }
-    }, [popularRecipes]);
+    }, [randomRecipes]);
 
 
     useEffect(() => {
-        dispatch(setPopularRecipesThunk(12))
+        dispatch(setRandomRecipesThunk(12))
 
         return () => {
-            dispatch(clearPopularRecipesAction())
+            dispatch(clearRandomRecipesAction())
         }
     }, []);
 
     return <div className={styles.wrapper}>
         <Search/>
-        {recipes && getCarousels()}
+        {getCarousels()}
     </div>
 }
 
