@@ -7,6 +7,7 @@ import {setPopularRecipesThunk} from "../../redux/thunks/recipesThunks";
 import {clearPopularRecipesAction} from "../../redux/actions/recipesActions";
 import Pagination from "../../components/Pagination/Pagination";
 import {arrayDivisor} from "../../assets/arrayDivisor";
+import Filter from "../../components/Filter/Filter";
 
 
 function PopularRecipes() {
@@ -19,9 +20,14 @@ function PopularRecipes() {
     const [recipes, setRecipes] = useState(null);
     const [totalCount, setTotalCount] = useState(null);
 
-
     function getCurrentPageRecipes() {
         return recipes[currentPage - 1];
+    }
+
+    function onFilterApply(sortedArr) {
+        let arr = arrayDivisor(sortedArr, pageSize)
+
+        setRecipes(arr)
     }
 
     function onPageChanged(page) {
@@ -54,6 +60,7 @@ function PopularRecipes() {
         {!recipes
             ? <Loading/>
             : <>
+                <Filter values={popularRecipes} onFilterApply={onFilterApply}/>
                 <RecipesGrid recipes={getCurrentPageRecipes()}/>
                 <Pagination pageSize={pageSize}
                             totalCount={totalCount}
