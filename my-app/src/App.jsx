@@ -1,7 +1,7 @@
 import './App.scss';
 import NavBar from "./components/NavBar/NavBar";
 import Home from "./pages/Home/Home";
-import {Route, Routes, useLocation} from "react-router-dom";
+import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import CurrentRecipe from "./pages/CurrentRecipe/CurrentRecipe";
 import SearchedRecipes from "./pages/SearchedRecipes/SearchedRecipes";
 import SecondNavBar from "./components/SecondNavBar/SecondNavBar";
@@ -22,6 +22,7 @@ function App() {
                 <Route path="/recipes/popular" element={<PopularRecipes/>}/>
                 <Route path="/recipes/search/:query" element={<SearchedRecipes/>}/>
                 <Route path="/recipe/:id" element={<CurrentRecipe/>}/>
+                <Route path="*" element={<Navigate to="/" replace />}/>
             </Routes>
         </div>
     );
