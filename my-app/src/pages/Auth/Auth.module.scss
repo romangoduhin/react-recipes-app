@@ -54,7 +54,12 @@
           font-size: 25px;
           border: none;
           outline: 2px solid $black;
-          background-color: $white !important;
+          background-color: $white;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $red;
+          }
 
           &:focus {
             outline: 2px solid $red;

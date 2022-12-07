@@ -14,3 +14,4 @@ export const setSearchTypeAction = (searchType) => {
         searchType: searchType
     }
 }
+

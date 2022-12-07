@@ -5,6 +5,7 @@ import IconButton from "../../../IconButton/IconButton";
 import RandomButton from "./components/RandomButton/RandomButton";
 import MenuList from "./components/MenuList/MenuList";
 import RandomRecipeModal from "./components/RandomRecipeModal/RandomRecipeModal";
+import {firebaseAPI} from "../../../../services/firebase/api";
 
 
 function BurgerMenu({isOpen, handleSwitch}) {
@@ -13,6 +14,10 @@ function BurgerMenu({isOpen, handleSwitch}) {
     function handleSwitchModal() {
         isOpen && handleSwitch();
         setIsModalOpen(!isModalOpen);
+    }
+
+    function handleSignOut() {
+            firebaseAPI.signOutUser()
     }
 
     return <>
@@ -26,7 +31,7 @@ function BurgerMenu({isOpen, handleSwitch}) {
             <RandomButton handleSwitchModal={handleSwitchModal}/>
             {isModalOpen && <RandomRecipeModal handleSwitchModal={handleSwitchModal}/>}
 
-            <MenuList onClick={handleSwitch}/>
+            <MenuList onClick={handleSwitch} onSignOut={handleSignOut}/>
         </div>
     </>
 }

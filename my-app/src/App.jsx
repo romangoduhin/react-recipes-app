@@ -4,10 +4,10 @@ import Home from "./pages/Home/Home";
 import {Route, Routes, useLocation} from "react-router-dom";
 import CurrentRecipe from "./pages/CurrentRecipe/CurrentRecipe";
 import SearchedRecipes from "./pages/SearchedRecipes/SearchedRecipes";
-import {useEffect, useState} from "react";
 import SecondNavBar from "./components/SecondNavBar/SecondNavBar";
 import PopularRecipes from "./pages/PopularRecipes/PopularRecipes";
 import Auth from "./pages/Auth/Auth";
+import {withAuthRedirect} from "./hoc/withAuthRedirect";
 
 
 function App() {
@@ -27,4 +27,4 @@ function App() {
     );
 }
 
-export default App;
+export default withAuthRedirect(App);

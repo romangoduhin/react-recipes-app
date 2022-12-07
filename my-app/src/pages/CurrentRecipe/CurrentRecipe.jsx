@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
-import spoonacularAPI from "../../services/spoonacularApi/api";
+import spoonacularAPI from "../../services/spoonacular/api";
 import Loading from "../../components/Loading/Loading";
 import styles from "./CurrentRecipe.module.scss";
 import DifficultyIndicator from "./components/DifficultyIndicator/DifficultyIndicator";

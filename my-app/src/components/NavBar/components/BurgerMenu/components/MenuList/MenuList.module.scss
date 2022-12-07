@@ -10,12 +10,24 @@
     row-gap: 20px;
 
     li {
-      a {
-        text-transform: uppercase;
-        font-weight: 600;
-        color: $white;
-        cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $white;
+      cursor: pointer;
 
+      &.email {
+        width: 100%;
+        color: $white;
+        @include cutToEllipsis();
+        cursor: auto;
+      }
+
+      &.signOut {
+        color: $red
+      }
+
+      a {
+        color: $white;
         &.active {
           color: $red;
         }

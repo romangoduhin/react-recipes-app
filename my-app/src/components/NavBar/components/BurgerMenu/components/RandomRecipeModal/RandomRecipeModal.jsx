@@ -4,7 +4,7 @@ import Modal from "../../../../../Modal/Modal";
 import PropTypes from "prop-types";
 import IconButton from "../../../../../IconButton/IconButton";
 import Loading from "../../../../../Loading/Loading";
-import spoonacularAPI from "../../../../../../services/spoonacularApi/api";
+import spoonacularAPI from "../../../../../../services/spoonacular/api";
 import {NavLink} from "react-router-dom";
 
 

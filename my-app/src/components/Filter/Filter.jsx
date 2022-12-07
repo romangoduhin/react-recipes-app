@@ -60,6 +60,7 @@ function Filter({values, onFilterApply}) {
 
     function getButtons() {
         return buttons.map(el => <li
+            key={`${el.proper}${el.direction}`}
             className={el.proper === prop && el.direction === direction ? `${styles.active}` : undefined}
             onClick={el.onClick.bind(el)}>{el.content}</li>)
     }
