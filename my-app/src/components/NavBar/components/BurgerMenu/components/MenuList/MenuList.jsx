@@ -35,13 +35,8 @@ function MenuList({onClick}) {
                 </a>
             </li>
             <li onClick={onClick}>
-                <NavLink to={'/signin'}>
-                    Sign In
-                </NavLink>
-            </li>
-            <li onClick={onClick}>
-                <NavLink to={'/signup'}>
-                    Sign Up
+                <NavLink to={'/auth'}>
+                    Authentication
                 </NavLink>
             </li>
         </ul>

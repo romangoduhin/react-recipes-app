@@ -1,0 +1,94 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  @include flexCenter(row);
+  justify-content: center;
+
+  img {
+    width: 40%;
+    height: 100%;
+  }
+
+  .formWrapper {
+    width: 60%;
+    height: 100%;
+    @include flexCenter(column);
+
+    form {
+      width: 60%;
+      @include flexCenter(column);
+      align-items: flex-start;
+
+      a {
+        margin-bottom: 40px;
+        color: $red;
+        font-size: 36px;
+        @include logoTextStyle();
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        font-size: 42px;
+        font-weight: 600;
+      }
+
+      div {
+        margin-bottom: 10px;
+        width: 100%;
+        height: 70px;
+        @include flexCenter(column);
+        align-items: flex-start;
+
+        label {
+          width: 100%;
+          height: 20px;
+          font-size: 12px;
+        }
+
+        input {
+          width: 70%;
+          height: 50px;
+          font-size: 25px;
+          border: none;
+          outline: 2px solid $black;
+          background-color: $white !important;
+
+          &:focus {
+            outline: 2px solid $red;
+          }
+        }
+      }
+
+      .buttons {
+        margin-top: 20px;
+        width: 70%;
+        height: 50px;
+        @include flexCenter(row);
+        justify-content: flex-start;
+        column-gap: 5%;
+
+        button {
+          width: 35%;
+          height: 100%;
+          font-size: 17px;
+          cursor: pointer;
+          border: none;
+          outline: 2px solid $black;
+          text-transform: uppercase;
+
+          &:nth-child(2) {
+            width: 60%;
+            background-color: $lightGray;
+          }
+
+          &:hover {
+            background-color: $red;
+          }
+        }
+      }
+    }
+  }
+}

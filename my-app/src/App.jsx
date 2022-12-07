@@ -7,26 +7,18 @@ import SearchedRecipes from "./pages/SearchedRecipes/SearchedRecipes";
 import {useEffect, useState} from "react";
 import SecondNavBar from "./components/SecondNavBar/SecondNavBar";
 import PopularRecipes from "./pages/PopularRecipes/PopularRecipes";
+import Auth from "./pages/Auth/Auth";
 
 
 function App() {
     const {pathname} = useLocation();
 
-    const [isSwitched, setIsSwitched] = useState(false);
-
-    useEffect(() => {
-        if (pathname.includes('/recipes')) {
-            setIsSwitched(true)
-        } else {
-            setIsSwitched(false)
-        }
-    }, [pathname]);
-
     return (
         <div className="App">
-            {isSwitched ? <SecondNavBar/> : <NavBar/>}
+            {pathname !== '/auth' ? pathname !== '/' ? <SecondNavBar/> : <NavBar/> : undefined}
             <Routes>
                 <Route path="/" element={<Home/>}/>
+                <Route path="/auth" element={<Auth/>}/>
                 <Route path="/recipes/popular" element={<PopularRecipes/>}/>
                 <Route path="/recipes/search/:query" element={<SearchedRecipes/>}/>
                 <Route path="/recipe/:id" element={<CurrentRecipe/>}/>
