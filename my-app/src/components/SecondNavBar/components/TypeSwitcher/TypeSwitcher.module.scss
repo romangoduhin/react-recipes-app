@@ -13,12 +13,12 @@
   cursor: pointer;
 
   p {
-    color: $white;
+    color: $textColor;
     @include logoTextStyle()
   }
 
   .active {
-    text-decoration: underline;
+    text-decoration: underline $red;
     pointer-events: none;
   }
 }

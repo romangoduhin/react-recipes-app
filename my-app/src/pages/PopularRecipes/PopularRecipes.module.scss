@@ -7,6 +7,6 @@
   min-height: 92vh;
   height: 100%;
   @include flexCenter(column);
-  justify-content: space-between;
-  background-color: $lightBlack;
+  justify-content: flex-start;
+  background-color: $white;
 }

@@ -6,6 +6,7 @@
   width: 320px;
   height: 45vh;
   cursor: pointer;
+ @include shadowAround($lightGray);
   background-color: $white;
 
   &:hover {

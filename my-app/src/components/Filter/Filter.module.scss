@@ -12,7 +12,7 @@
   li {
     &.active {
       span {
-        color: $red !important;
+       text-decoration: underline $red;
       }
     }
 
@@ -20,7 +20,7 @@
       text-transform: uppercase;
       cursor: pointer;
       @include logoTextStyle();
-      color: $white;
+      color: $textColor;
     }
   }
 }

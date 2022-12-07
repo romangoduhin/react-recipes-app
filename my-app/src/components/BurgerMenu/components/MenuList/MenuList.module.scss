@@ -17,6 +17,7 @@
 
       &.email {
         width: 100%;
+        @include flexCenter(row);
         color: $white;
         @include cutToEllipsis();
         cursor: auto;

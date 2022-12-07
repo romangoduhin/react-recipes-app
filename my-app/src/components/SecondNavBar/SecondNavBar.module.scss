@@ -10,7 +10,7 @@
   height: 8vh;
   @include flexCenter(row);
   justify-content: flex-start;
-  background-color: $red;
+  background-color: $white;
 
   .logoBlock {
     width: 25%;
@@ -24,7 +24,7 @@
       transition: 0.1s;
 
       a {
-        color: $white;
+        color: $red;
       }
 
       &:hover {
