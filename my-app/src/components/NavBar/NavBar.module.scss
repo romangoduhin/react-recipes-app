@@ -33,7 +33,7 @@
     }
   }
 
-  .followBlock, .searchBlock {
+  .followBlock {
     width: 8%;
     height: 100%;
     @include flexCenter(row);
@@ -43,9 +43,7 @@
     span {
       color: $lightGray;
     }
-  }
 
-  .followBlock {
     & > a {
       width: 25px;
       height: 25px;

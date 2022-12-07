@@ -45,7 +45,7 @@ function Auth() {
                 theme="light"
             />
 
-            <img src="./authBgImg.png" alt="bgImg"/>
+            <img src="/authBgImg.png" alt="bgImg"/>
 
             <div className={styles.formWrapper}>
                 <form>

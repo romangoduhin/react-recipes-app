@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './TypeSwitcher.module.scss';
 import {setSearchTypeThunk} from "../../../../redux/thunks/appThunks";
-import {useDispatch} from "react-redux";
-import PropTypes from "prop-types";
+import {useDispatch, useSelector} from "react-redux";
 
 
-function TypeSwitcher({searchType}) {
+function TypeSwitcher() {
     const dispatch = useDispatch();
+
+    const {searchType} = useSelector((state) => state.app);
 
     function handleSwitch(type) {
         dispatch(setSearchTypeThunk(type))
@@ -25,14 +26,6 @@ function TypeSwitcher({searchType}) {
             ingredients
         </p>
     </div>
-}
-
-TypeSwitcher.defaultProps = {
-    searchType: null,
-}
-
-TypeSwitcher.propTypes = {
-    searchType: PropTypes.string,
 }
 
 export default TypeSwitcher;

@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./MenuList.module.scss";
 import {NavLink} from "react-router-dom";
 import PropTypes from "prop-types";
-import {auth} from "../../../../../../services/firebase/firebase";
+import {auth} from "../../../../services/firebase/firebase";
 
 
 function MenuList({onClick, onSignOut}) {
