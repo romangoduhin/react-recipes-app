@@ -37,8 +37,6 @@ function CurrentRecipe() {
         ? <div className={styles.wrapper}>
             <h1 className={styles.title}>{currentRecipe.title}</h1>
 
-            <br/>
-
             <div className={styles.preInfo}>
                 <LikesCounter likesCount={currentRecipe.aggregateLikes}/>
                 <DifficultyIndicator level={getRandDiffLvl(0, 5)}/>
@@ -58,15 +56,11 @@ function CurrentRecipe() {
                                      ingredients={currentRecipe.extendedIngredients}
                         />
 
-                        <br/>
-
                         <Categories categories={currentRecipe.dishTypes}/>
                     </div>
 
                     <div className={styles.description}>
                         <Summary summary={currentRecipe.summary}/>
-
-                        <br/>
 
                         {currentRecipe.analyzedInstructions[0] &&
                             <Method instructions={currentRecipe.analyzedInstructions[0].steps}/>}

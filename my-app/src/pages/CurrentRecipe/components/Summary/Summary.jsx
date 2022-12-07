@@ -11,7 +11,7 @@ function Summary({summary}) {
 
     return <div className={styles.summary}>
         <h2>Description</h2>
-        <br/>
+
         <span>{getParsedHtml(summary)}</span>
     </div>
 }

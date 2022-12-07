@@ -60,7 +60,7 @@ function Search() {
     return <>
         <div className={styles.search} style={{backgroundImage: `url(/searchBgImg.jpg)`}}>
             <h1>Find a Recipe</h1>
-            <br/>
+
             <div className={styles.inputButton} onClick={handleSwitch}>
                 <IconButton src={'/searchIcon.svg'} width={35} height={35}/>
             </div>
@@ -82,9 +82,6 @@ function Search() {
 
                 <IconButton src={'/closeIcon.svg'} width={25} height={25} onClick={handleSwitch}/>
             </div>
-
-            <br/>
-            <br/>
 
             <form className={styles.inputWrapper} onSubmit={handleSearch}>
                 <div className={styles.imgWrapper}>

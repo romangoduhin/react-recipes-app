@@ -16,9 +16,9 @@ function Categories({categories}) {
 
     return <div className={styles.categories}>
         <h2>Categories</h2>
-        <br/>
+
         {getCategories(categories)}
-        <br/>
+
         <span className={styles.extraInfo}>
             These categories are provided as a guide only and do
             reflect any ingredients or products displayed or

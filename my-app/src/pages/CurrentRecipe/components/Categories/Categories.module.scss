@@ -3,7 +3,12 @@
 
 
 .categories {
+  margin-top: 20px;
   width: 100%;
+
+  h2 {
+    margin-bottom: 20px;
+  }
 
   .list {
     @include flexCenter(row);

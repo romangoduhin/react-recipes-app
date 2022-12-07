@@ -17,7 +17,7 @@ function Ingredients({servingsCount, ingredients}) {
     return <div className={styles.ingredients}>
         <div className={styles.header}>
             <h2>Ingredients</h2>
-            <br/>
+
             <h4>Number of servings: {servingsCount}</h4>
         </div>
 
