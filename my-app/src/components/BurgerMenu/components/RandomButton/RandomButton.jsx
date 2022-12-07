@@ -10,8 +10,6 @@ function RandomButton({handleSwitchModal}) {
                 <img src="/questionIcon.png" alt="icon"/>
             </div>
 
-            <br/>
-
             <p className={styles.text}>Random recipe</p>
         </div>
     </>

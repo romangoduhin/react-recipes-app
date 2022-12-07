@@ -1,0 +1,15 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.searchBlock {
+  width: 8%;
+  height: 100%;
+  @include flexCenter(row);
+  justify-content: flex-start;
+  column-gap: 5px;
+
+  span {
+    color: $lightGray;
+  }
+}

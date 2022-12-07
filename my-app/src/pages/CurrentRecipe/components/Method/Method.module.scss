@@ -3,9 +3,14 @@
 
 
 .method {
+  margin-top: 20px;
   width: 100%;
   @include flexCenter(column);
   align-items: flex-start;
+
+  h2 {
+    margin-bottom: 20px;
+  }
 
   .steps {
     width: 100%;
@@ -19,6 +24,10 @@
       background-color: $white;
       border-radius: 20px;
       @include shadowAround($darkGray);
+
+      h4 {
+        margin-bottom: 20px;
+      }
     }
   }
 }

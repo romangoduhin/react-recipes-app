@@ -1,29 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './NavBar.module.scss';
 import {NavLink} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {setIsSearchOpen} from "../../redux/actions/appActions";
-import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
-import IconButton from "../IconButton/IconButton";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import SearchButton from "./components/SearchButton/SearchButton";
 
 
 function NavBar() {
-    const dispatch = useDispatch();
-
-    const {isSearchOpen} = useSelector((state) => state.app);
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    async function handleSearchSwitch() {
-        dispatch(setIsSearchOpen(!isSearchOpen))
-    }
-
-    async function handleMenuSwitch() {
-        setIsMenuOpen(!isMenuOpen)
-    }
-
     return  <div className={styles.navBar}>
-            <BurgerMenu isOpen={isMenuOpen} handleSwitch={handleMenuSwitch}/>
+            <BurgerMenu/>
 
             <div className={styles.logoBlock}>
                    <span className={styles.logoText}>
@@ -42,10 +26,7 @@ function NavBar() {
                 </a>
             </div>
 
-            <div className={styles.searchBlock}>
-                <span>Search</span>
-                <IconButton src={'/searchIcon.svg'} width={25} height={25} onClick={handleSearchSwitch}/>
-            </div>
+            <SearchButton/>
         </div>
 }
 

@@ -8,6 +8,7 @@
   @include flexCenter(column);
 
   h1 {
+    margin-bottom: 20px;
     font-size: 66px;
     font-weight: 600;
   }
@@ -24,7 +25,7 @@
 }
 
 .header {
-  margin-top: 10vh;
+  margin-bottom: 40px;
   width: 50%;
   height: 30px;
   @include flexCenter(row);

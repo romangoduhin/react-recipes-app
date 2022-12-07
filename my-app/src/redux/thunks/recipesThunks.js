@@ -1,4 +1,4 @@
-import spoonacularAPI from "../../services/spoonacularApi/api";
+import spoonacularAPI from "../../services/spoonacular/api";
 import {setSearchedRecipesAction, setPopularRecipesAction, setRandomRecipesAction} from "../actions/recipesActions";
 
 

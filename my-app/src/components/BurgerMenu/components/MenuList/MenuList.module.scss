@@ -1,0 +1,41 @@
+@import "../../../../assets/mixins";
+@import "../../../../assets/variables";
+
+.menuList {
+  margin-top: 40px;
+  width: 100%;
+
+  ul {
+    @include flexCenter(column);
+    row-gap: 20px;
+
+    li {
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $white;
+      cursor: pointer;
+
+      &.email {
+        width: 100%;
+        color: $white;
+        @include cutToEllipsis();
+        cursor: auto;
+      }
+
+      &.signOut {
+        color: $red
+      }
+
+      a {
+        color: $white;
+        &.active {
+          color: $red;
+        }
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+  }
+}

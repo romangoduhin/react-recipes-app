@@ -4,15 +4,15 @@ import IconButton from "../../../IconButton/IconButton";
 import {formatToNormal, formatToQuery} from "../../../../assets/formaters";
 import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import PropTypes from "prop-types";
 
 
-function Input({searchType}) {
+function Input() {
     const navigate = useNavigate();
 
-    const [value, setValue] = useState('');
-
+    const {searchType} = useSelector((state) => state.app);
     const {searchedValue} = useSelector((state) => state.recipes);
+
+    const [value, setValue] = useState('');
     const [placeholder, setPlaceholder] = useState('');
 
     function handleChange(event) {
@@ -64,14 +64,6 @@ function Input({searchType}) {
 
         <input value={value} onChange={handleChange} placeholder={placeholder} type="text"/>
     </form>
-}
-
-Input.defaultProps = {
-    searchType: null,
-}
-
-Input.propTypes = {
-    searchType: PropTypes.string,
 }
 
 export default Input;
