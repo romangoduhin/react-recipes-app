@@ -55,12 +55,12 @@ function Auth() {
 
                     <div>
                         <label id='email' htmlFor="text">Email address</label>
-                        <input value={email} onChange={handleChange} type="email" id='email'/>
+                        <input value={email} onChange={handleChange} type="email" id='email' placeholder={'example@gmail.com'}/>
                     </div>
 
                     <div>
                         <label id='password' htmlFor="password">Password</label>
-                        <input value={password} onChange={handleChange} type="password" id='password'/>
+                        <input value={password} onChange={handleChange} type="password" id='password' placeholder={'password'}/>
                     </div>
 
                     <div className={styles.buttons}>
