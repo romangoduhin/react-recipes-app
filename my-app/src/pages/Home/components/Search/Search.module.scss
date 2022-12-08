@@ -37,11 +37,12 @@
     @include flexCenter(row);
     justify-content: flex-start;
     column-gap: 20px;
-    font-size: 30px;
+    font-size: 23px;
+    text-transform: uppercase;
     cursor: pointer;
 
     .active {
-      text-decoration: underline;
+      text-decoration: underline $red;
       pointer-events: none;
     }
   }
