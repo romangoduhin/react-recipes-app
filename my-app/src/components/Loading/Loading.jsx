@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import ReactLoading from 'react-loading';
-import styles from "./Loading.module.scss";
+
 
 function Loading({color, height, width}) {
-    return <div className={styles.loading}>
-        <ReactLoading type={'bubbles'} color={color} height={height} width={width}/>
-    </div>
+    return <ReactLoading type={'bubbles'} color={color} height={height} width={width}/>
 }
 
 Loading.defaultProps = {
-    color: '#178841',
-    height: "200px",
-    width: "250px"
+    color: '#ef4229',
+    height: '200px',
+    width: '200px',
 }
 
 Loading.propTypes = {

@@ -1,0 +1,12 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+.wrapper {
+  padding-top: 10px;
+  width: 100%;
+  min-height: 92vh;
+  height: 100%;
+  @include flexCenter(column);
+  justify-content: flex-start;
+  background-color: $white;
+}

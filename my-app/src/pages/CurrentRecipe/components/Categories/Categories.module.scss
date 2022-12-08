@@ -1,0 +1,34 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.categories {
+  margin-top: 20px;
+  width: 100%;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .list {
+    @include flexCenter(row);
+    justify-content: flex-start;
+    column-gap: 10px;
+    row-gap: 10px;
+    flex-wrap: wrap;
+
+    .category {
+      padding: 5px;
+      width: auto;
+      font-size: 15px;
+      text-transform: capitalize;
+      background-color: $white;
+      border: 1px solid $darkGray;
+      border-radius: 5px;
+    }
+  }
+
+  .extraInfo {
+    font-size: 11px;
+  }
+}

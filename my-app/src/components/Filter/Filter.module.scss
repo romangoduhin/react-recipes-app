@@ -1,0 +1,26 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+.filter {
+  margin-bottom: 20px;
+  width: 65%;
+  height: 5vh;
+  @include flexCenter(row);
+  justify-content: space-evenly;
+  align-items: center;
+
+  li {
+    &.active {
+      span {
+       text-decoration: underline $red;
+      }
+    }
+
+    span {
+      text-transform: uppercase;
+      cursor: pointer;
+      @include logoTextStyle();
+      color: $textColor;
+    }
+  }
+}

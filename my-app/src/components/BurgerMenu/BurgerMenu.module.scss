@@ -1,0 +1,33 @@
+@import "../../assets/mixins";
+@import "../../assets/variables";
+
+
+.burgerMenuButton {
+  width: 5%;
+  height: 100%;
+  @include flexCenter(row);
+}
+
+.burgerMenu {
+  z-index: 9;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: $lightBlack;
+  transform: translateX(-100%);
+  transition: 0.5s;
+
+  &.opened {
+    visibility: visible;
+    transform: translateX(0%);
+    transition: 0.5s;
+  }
+}

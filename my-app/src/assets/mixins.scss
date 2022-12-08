@@ -11,3 +11,15 @@
   2px 0px 2px $color,
   0px -2px 2px $color;
 }
+
+@mixin cutToEllipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin logoTextStyle() {
+  letter-spacing: -0.05em;
+  font-weight: 700;
+  cursor: pointer;
+}

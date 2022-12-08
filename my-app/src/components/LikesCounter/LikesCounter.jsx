@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 function LikesCounter({likesCount}) {
     return <div className={styles.likes}>
-        <img src="/favouriteIcon.png" alt="icon"/>
+        <img src="/favoriteIcon.svg" alt="icon"/>
         <b>{likesCount}</b>
     </div>
 }

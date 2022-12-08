@@ -2,51 +2,46 @@ import React from 'react';
 import styles from "./RecipeCard.module.scss";
 import PropTypes from 'prop-types';
 import {NavLink} from "react-router-dom";
-import LikesCounter from "../LikesCounter/LikesCounter";
 
-function RecipeCard({size, recipe}) {
 
-    return recipe && <div className={`${styles.recipeCard} ${styles[size]}`} key={recipe.id}>
-        <NavLink to={`/recipe/${recipe.id}`}>
-            <img className={`${styles.image} ${styles[size]}`}
-                 src={recipe.image ? recipe.image : "./logoSmall.png"}
-                 alt="recipe image"
-            />
+function RecipeCard({recipe}) {
+    return <NavLink to={`/recipe/${recipe.id}`}>
+        <div className={styles.recipeCard} key={recipe.id}>
+            <img src={recipe.image ? recipe.image : "/logoSmall.png"} alt="recipe image"/>
 
-            <div className={size === "medium" ? `${styles.title} ${styles.medium}` : styles.title}>
-                <b>{recipe.title}</b>
-                {size === "medium" && <LikesCounter likesCount={recipe.aggregateLikes}/>}
-            </div>
+            <div className={styles.content}>
+                <div className={styles.title}>
+                    <p><span>RECIPE</span> {recipe.sourceName && <>| FROM {recipe.sourceName}</>}</p>
 
-            <div className={styles.info}>
-                {size === "small" && <>
-                    <div>
+                    <b>{recipe.title}</b>
+                </div>
+
+                <div className={styles.info}>
+                    {recipe.vegan !== undefined && <div>
                         <span>Vegan</span>
                         <b>{recipe.vegan ? "Yes" : "No"}</b>
-                    </div>
+                    </div>}
 
-                    <div>
-                        <span>Health score</span>
-                        <b>{recipe.healthScore}</b>
-                    </div>
+                    {recipe.aggregateLikes !== null && recipe.aggregateLikes !== undefined && <div>
+                        <span>Likes</span>
+                        <b>{recipe.aggregateLikes}</b>
+                    </div>}
 
-                    <div>
+                    {recipe.readyInMinutes && <div>
                         <span>Cooking time</span>
                         <b>{recipe.readyInMinutes}m</b>
-                    </div>
-                </>}
+                    </div>}
+                </div>
             </div>
-        </NavLink>
-    </div>
+        </div>
+    </NavLink>
 }
 
 RecipeCard.defaultProps = {
-    size: 'small',
-    recipe: {},
+    recipe: null,
 }
 
 RecipeCard.propTypes = {
-    size: PropTypes.string,
     recipe: PropTypes.object,
 }
 

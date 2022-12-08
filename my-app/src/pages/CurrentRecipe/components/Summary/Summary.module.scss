@@ -1,0 +1,14 @@
+@import "./src/assets/variables";
+
+
+.summary {
+  width: 100%;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  a {
+    color: $green;
+  }
+}

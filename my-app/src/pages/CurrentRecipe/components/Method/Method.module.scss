@@ -1,0 +1,33 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.method {
+  margin-top: 20px;
+  width: 100%;
+  @include flexCenter(column);
+  align-items: flex-start;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .steps {
+    width: 100%;
+    @include flexCenter(column);
+    row-gap: 10px;
+
+    .step {
+      padding: 20px 10px;
+      width: 100%;
+      min-height: 100px;
+      background-color: $white;
+      border-radius: 20px;
+      @include shadowAround($darkGray);
+
+      h4 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

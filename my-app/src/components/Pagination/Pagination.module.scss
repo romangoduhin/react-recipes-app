@@ -1,0 +1,40 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+.pagination {
+  width: 70%;
+  height: 8vh;
+  @include flexCenter(column);
+
+  .list {
+    @include flexCenter(row);
+    column-gap: 15px;
+
+    button {
+      color: $textColor;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: none;
+      background-color: inherit;
+      cursor: pointer;
+
+      &:hover {
+        color: $lightGray;
+      }
+    }
+
+    .page {
+      font-size: 25px;
+      color: $textColor;
+      cursor: pointer;
+
+      &.active {
+        color: $red;
+      }
+
+      &:hover {
+        color: $lightGray;
+      }
+    }
+  }
+}

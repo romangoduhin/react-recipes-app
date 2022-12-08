@@ -1,0 +1,72 @@
+@import "./src/assets/mixins";
+@import "./src/assets/variables";
+
+
+.search {
+  width: 60%;
+  height: 92vh;
+  @include flexCenter(column);
+
+  h1 {
+    margin-bottom: 20px;
+    font-size: 66px;
+    font-weight: 600;
+  }
+
+  .inputButton {
+    padding-left: 20px;
+    width: 35%;
+    height: 60px;
+    @include flexCenter(row);
+    justify-content: flex-start;
+    background-color: $white;
+    cursor: pointer;
+  }
+}
+
+.header {
+  margin-bottom: 40px;
+  width: 50%;
+  height: 30px;
+  @include flexCenter(row);
+  justify-content: space-between;
+
+  .searchSwitcher {
+    width: 50%;
+    height: 5vh;
+    @include flexCenter(row);
+    justify-content: flex-start;
+    column-gap: 20px;
+    font-size: 23px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    .active {
+      text-decoration: underline $red;
+      pointer-events: none;
+    }
+  }
+}
+
+.inputWrapper {
+  width: 50%;
+  height: 70px;
+  @include flexCenter(row);
+  border-bottom: 1px solid $lightGray;
+
+  .imgWrapper {
+    width: 10%;
+    height: 100%;
+    @include flexCenter(row);
+  }
+
+  .input {
+    padding-top: 10px;
+    width: 90%;
+    height: 100%;
+    font-size: 45px;
+    border: none;
+    outline: none;
+    background-color: inherit;
+  }
+}
