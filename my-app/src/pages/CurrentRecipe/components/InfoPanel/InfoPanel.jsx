@@ -25,10 +25,6 @@ function InfoPanel({cookingTime, servingsCount, isVegan, isVegetarian}) {
             <span>Vegetarian</span>
             <b>{isVegetarian ? "Yes" : "No"}</b>
         </div>
-
-        <div>
-            <IconButton src={'/favouriteIcon.png'}/>
-        </div>
     </div>
 }
 
