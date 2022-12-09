@@ -7,16 +7,16 @@
 
 # Screenshots:
 ![](https://i.ibb.co/ZfDSWVF/authPage.png "Auth page")
-![](https://ibb.co/yNjpWXZ "Auth page error toast")
-![](https://ibb.co/YZwmXZY "Home page")
-![](https://ibb.co/8MQWgM5 "Burger menu")
-![](https://ibb.co/x3Jpw9w "Random recipe modal")
-![](https://ibb.co/zm9WcXq "Popular recipes page with sort")
-![](https://ibb.co/dbw4WN3 "Pagination")
-![](https://ibb.co/cFHMKhK "Search modal")
-![](https://ibb.co/Cs3sYfK "Searched recipes page")
-![](https://ibb.co/hcQRdhR "Recipe page pt.1")
-![](https://ibb.co/qC6bNsn "Recipe page pt.2")
+![](https://i.ibb.co/ZfDSWVF/authPage.png "Auth page error toast")
+![](https://i.ibb.co/L5Hmr5b/homePage.png "Home page")
+![](https://i.ibb.co/SNZhwNn/burger-Menu.png "Burger menu")
+![](https://i.ibb.co/N7Z8fDf/random-Recipe-button.png "Random recipe modal")
+![](https://i.ibb.co/dfCs9P8/popular-Page.png "Popular recipes page with sort")
+![](https://i.ibb.co/Gs4QxZ1/pagination-Popular-page.png "Pagination")
+![](https://i.ibb.co/zRYjWVW/Home-Search.png "Search modal")
+![](https://i.ibb.co/mFVF235/searched-Recipes-page.png "Searched recipes page")
+![](https://i.ibb.co/T1jB0pB/recipe-Page1.png "Recipe page pt.1")
+![](https://i.ibb.co/xYZV1js/recipe-Page2.png "Recipe page pt.2")
 
 # What i used for it?
 
