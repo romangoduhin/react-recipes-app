@@ -1,9 +1,9 @@
-👋 Hi , this is my project React recipes!
+#👋 Hi , this is my project React recipes!
 #[Check it](https://react-recipes-app-one.vercel.app/)   
 
 ## Data for authorization:
-### email: test@gmail.com
-### password: test@gmail.com
+### Email: test@gmail.com
+### Password: test@gmail.com
 
 # Screenshots:
 ![](https://i.ibb.co/ZfDSWVF/authPage.png "Auth page")
