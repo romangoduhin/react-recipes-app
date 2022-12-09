@@ -1,5 +1,5 @@
 👋 Hi , this is my project React recipes!
-# Check it https://react-recipes-app-one.vercel.app/
+#[Check it](https://react-recipes-app-one.vercel.app/)   
 
 ## Data for authorization:
 ### email: test@gmail.com
@@ -7,7 +7,7 @@
 
 # Screenshots:
 
-![](https://ibb.co/N36wbzL "Auth page")
+![](https://ibb.co/N36wbzL.png "Auth page")
 ![](https://ibb.co/yNjpWXZ "Auth page error toast")
 ![](https://ibb.co/YZwmXZY "Home page")
 ![](https://ibb.co/8MQWgM5 "Burger menu")
