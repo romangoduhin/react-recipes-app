@@ -1,26 +1,36 @@
-##👋 Hi , this is my project React recipes!
-[##Check it](https://react-recipes-app-one.vercel.app/)   
+# 👋 Hi , this is my project React recipes!
+# [CHECK IT](https://react-recipes-app-one.vercel.app/)
 
 ## Data for authorization:
 ### Email: test@gmail.com
 ### Password: test@gmail.com
 
 # Screenshots:
+#### Auth page
 ![](https://i.ibb.co/ZfDSWVF/authPage.png "Auth page")
+#### Auth page error toast
 ![](https://i.ibb.co/ZfDSWVF/authPage.png "Auth page error toast")
+#### Home page
 ![](https://i.ibb.co/L5Hmr5b/homePage.png "Home page")
+#### Burger menu
 ![](https://i.ibb.co/SNZhwNn/burger-Menu.png "Burger menu")
+#### Random recipe modal
 ![](https://i.ibb.co/N7Z8fDf/random-Recipe-button.png "Random recipe modal")
+#### Popular recipes page with sort
 ![](https://i.ibb.co/dfCs9P8/popular-Page.png "Popular recipes page with sort")
+#### Pagination example
 ![](https://i.ibb.co/Gs4QxZ1/pagination-Popular-page.png "Pagination")
+#### Search modal
 ![](https://i.ibb.co/zRYjWVW/Home-Search.png "Search modal")
+#### Searched recipes page
 ![](https://i.ibb.co/mFVF235/searched-Recipes-page.png "Searched recipes page")
+#### Recipe page
 ![](https://i.ibb.co/T1jB0pB/recipe-Page1.png "Recipe page pt.1")
 ![](https://i.ibb.co/xYZV1js/recipe-Page2.png "Recipe page pt.2")
 
 # What i used for it?
 
-| Package name                                                        | Version  |
+| Package name                                                        | Version  | 
 | --------------------------------------------------------------------|:--------:|
 |[react](https://www.npmjs.com/package/react)                         | 18.2.0   |
 |[react-loading](https://www.npmjs.com/package/react-loading)         | 2.0.3    |
@@ -34,3 +44,5 @@
 |[html-react-parser](https://www.npmjs.com/package/html-react-parser) | 3.0.4    |
 |[prop-types](https://www.npmjs.com/package/prop-types)               | 15.8.1   |
 |[sass](https://www.npmjs.com/package/sass)                           | 1.56.0   |
+
+I got my data from this [SPOONACULAR API](https://spoonacular.com/food-api)
