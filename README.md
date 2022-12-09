@@ -6,8 +6,7 @@
 ### password: test@gmail.com
 
 # Screenshots:
-<img width="1000" alt="homepage1" src="https://ibb.co/N36wbzL">
-![](https://ibb.co/N36wbzL.png "Auth page")
+![](https://i.ibb.co/ZfDSWVF/authPage.png "Auth page")
 ![](https://ibb.co/yNjpWXZ "Auth page error toast")
 ![](https://ibb.co/YZwmXZY "Home page")
 ![](https://ibb.co/8MQWgM5 "Burger menu")
