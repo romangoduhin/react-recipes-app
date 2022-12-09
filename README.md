@@ -1,4 +1,4 @@
-#👋 Hi , this is my project React recipes!
+👋 #Hi , this is my project React recipes!
 #[Check it](https://react-recipes-app-one.vercel.app/)   
 
 ## Data for authorization:
